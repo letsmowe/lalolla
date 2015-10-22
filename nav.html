@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="lato">
 <head>
 	<meta charset="UTF-8">
 	<title>Teste</title>
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<script src="dist/js/villa.min.js"></script>
 	<link rel="stylesheet" href="dist/css/villa.min.css"/>
+	<style type="text/css">
+
+		.nav-header,
+		.local,
+		.info,
+		.social,
+		.nav-footer {
+			width: 100%;
+		}
+
+		.attendance {
+			padding: 1em 0;
+		}
+
+		.attendance-wrapper {
+			max-width: 24em;
+			width: 100%;
+			padding: 0 1em;
+		}
+
+		.attendance-day {
+			padding: 1em 1.5em;
+			border-radius: 3%;
+			cursor: pointer;
+		}
+
+		.title {
+			font-size: 1em;
+			font-weight: 500;
+			letter-spacing: -1px;
+			margin-bottom: 2px;
+		}
+
+		.hours {}
+
+		.hour {
+			font-size: .875em;
+			letter-spacing: -.5px;
+		}
+
+		.foto {
+			background-color: #263238;
+			height: 200px;
+		}
+
+		.local {
+			height: 400px;
+			background-color: #4a148c;
+		}
+
+		.maps  {}
+
+		.info  {
+			height: 400px;
+			background-color: #455a64;
+		}
+
+		.icon  {
+			width: 64px;
+			height: 64px;
+			background-color: #263238;
+		}
+
+		.social {
+			height: 400px;
+			background-color: #00e5ff;
+		}
+
+		.dev {
+			float: right;
+		}
+
+	</style>
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 	<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
@@ -14,6 +89,61 @@
 	<![endif]-->
 </head>
 <body class="indigo">
+
+<nav>
+
+	<header class="nav-header">
+
+		<div class="foto"></div>
+
+		<div class="attendance flex justify-center grey-50 font-grey-900">
+
+			<div class="attendance-wrapper flex justify-between">
+
+				<div class="attendance-day flex flex-column align-center h-grey-200">
+					<span class="title">Seg. a Sex.</span>
+					<div class="hours flex flex-column align-center">
+						<span class="hour">8:00 às 11:00</span>
+						<span class="hour">13:00 às 18:00</span>
+					</div>
+				</div>
+
+				<div class="attendance-day flex flex-column align-center justify-center h-grey-200">
+					<span class="title flex">Sábado</span>
+					<div class="hours flex flex-column align-center">
+						<span class="hour">8:00 às 15:00</span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</header>
+
+	<div class="local">
+		<h2>Endereço: Lorem ipsum dolor sit amet, consectetur, 333</h2>
+		<div class="maps"></div>
+	</div>
+
+	<div class="info">
+		<div class="icon"></div><h3>Endereço: Lorem ipsum dolor sit amet, consectetur, 333</h3>
+		<div class="icon"></div><h3>3351- 9234</h3>
+		<div class="icon"></div><h3>99978-8888</h3>
+	</div>
+
+	<div class="social">
+		<a href="#"><div class="icon"></div> <h2>Facebook</a></h2>
+		<a href="#"><div class="icon"></div> <h2>Instagram</a></h2>
+		<a href="#"><div class="icon"></div> <h2>Twitter</a></h2>
+	</div>
+
+	<footer class="nav-footer">
+		<h3>Copyright®; 2015</h3>
+		<div class="dev">Kabanas Info</div>
+	</footer>
+
+</nav>
 
 </body>
 </html>
