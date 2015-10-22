@@ -1,6 +1,6 @@
 {
-  "name": "villa",
-  "version": "2.8.7",
+  "name": "lalolla",
+  "version": "0.0.1",
   "description": "Villa Web Stack",
   "main": "gulpfile.js",
   "dependencies": {
