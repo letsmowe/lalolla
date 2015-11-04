@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="roboto">
+<head>
+	<meta charset="UTF-8">
+	<title>Promafa</title>
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	<script src="dist/js/villa.min.js"></script>
+	<link rel="stylesheet" href="dist/css/villa.min.css"/>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+	<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
+	<link rel="stylesheet" type="text/css" href="css/cross.css"/>
+	<script src="dist/js/html5shiv.js"></script>
+	<script src="dist/js/html5shiv-printshiv.js"></script>
+	<script src="dist/js/classList.min.js"></script>
+	<![endif]-->
+</head>
+<body class="font-grey-900 bg-cover grey-100 flex flex-column">
+
+<script>
+
+	var isPortrait = function() {
+		return window.innerHeight > window.innerWidth;
+	};
+
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+		BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+		iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+		Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+		Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+		any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isPortrait());
+		}
+	};
+
+	if (isMobile.any()) document.body.classList.add('mobile');
+
+</script>
+
+<style>
+
+	@font-face {
+		font-family: 'promafa-uc';
+		src: url('dist/font/promafa-uc.eot?33545661');
+		src: url('dist/font/promafa-uc.eot?33545661#iefix') format('embedded-opentype'),
+			 url('dist/font/promafa-uc.woff?33545661') format('woff'),
+			 url('dist/font/promafa-uc.ttf?33545661') format('truetype'),
+			 url('dist/font/promafa-uc.svg?33545661#promafa-uc') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+		@font-face {
+		font-family: 'promafa-uc';
+		src: url('dist/font/promafa-uc.svg?33545661#promafa-uc') format('svg');
+		}
+
+	}
+
+	[class^="icon-"]:before,
+	[class*=" icon-"]:before {
+		font-family: "promafa-uc";
+		font-style: normal;
+		font-weight: normal;
+		speak: none;
+		display: inline-block;
+		text-decoration: inherit;
+		width: 1em;
+		margin-right: .2em;
+		text-align: center;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1em;
+		margin-left: .2em;
+		font-size: 2.25em;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon-fax:before { content: '\e800'; }
+	.icon-phone:before { content: '\e801'; }
+	.icon-mail:before { content: '\e802'; }
+	.icon-map:before { content: '\e803'; }
+
+	#main-header {
+		width: 100%;
+		padding: 1.5em 0;
+	}
+
+	#main {
+		width: 100%;
+	}
+
+	.contacts,
+	.contacts .contact,
+	.contacts .contact > *,
+	.contacts .contact .contact-header .icon,
+	.local,
+	.local .local-info,
+	.local .local-info > *,
+	.local .local-info .local-info-header .icon {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	.contacts,
+	.local {
+		-webkit-flex-flow: column wrap;
+		-moz-flex-flow: column wrap;
+		-ms-flex-flow: column wrap;
+		flex-flow: column wrap;
+		-webkit-justify-content: space-between;
+		-moz-justify-content: space-between;
+		-ms-justify-content: space-between;
+		justify-content: space-between;
+		margin: 1.5em auto 1.5em;
+		width: 100%;
+	}
+
+	.contacts {
+		-webkit-flex-flow: row wrap;
+		-moz-flex-flow: row wrap;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+		max-width: 72rem;
+	}
+
+	.contacts .contact,
+	.local .local-info {
+		-webkit-flex-flow: row nowrap;
+		-moz-flex-flow: row nowrap;
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-webkit-justify-content: center;
+		-moz-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		-moz-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		margin: 1em auto;
+		-webkit-flex: 1;
+		-moz-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+
+	.local .local-info {
+		margin: 3em 0;
+	}
+
+	.contacts .contact > *,
+	.local .local-info > * {
+		-webkit-flex-flow: column nowrap;
+		-moz-flex-flow: column nowrap;
+		-ms-flex-flow: column nowrap;
+		flex-flow: column nowrap;
+	}
+
+	.contacts .contact .contact-title,
+	.local .local-info .local-info-title {
+		font-size: 1em;
+		margin: 0 0 .5em;
+		font-weight: 900;
+	}
+
+	.contacts .contact .contact-header .icon,
+	.local .local-info .local-info-header .icon {
+		border-right: solid 1px #bdbdbd;
+		margin-right: 1.5em;
+		-webkit-align-items: center;
+		-moz-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		-webkit-justify-content: center;
+		-moz-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		height: 6em;
+		width: 6em;
+	}
+
+	.contacts .contact .contact-inner,
+	.local .local-info .local-info-inner {
+		width: 12rem;
+	}
+
+	.map {
+		width: 100%;
+		height: 24em;
+	}
+
+	.mobile .map {
+		display: none;
+	}
+
+	#main-footer {
+		height: 36rem;
+		height: 50vh;
+		text-align: center;
+	}
+
+	.footer-img {
+		width: 24em;
+		padding: 0 0 .75em;
+	}
+
+	footer > * {
+		display: block;
+	}
+
+	@media (min-width: 60rem) {
+
+		#contact-fax {
+			order: 0;
+		}
+
+		#contact-phone {
+			order: 1;
+		}
+
+		#contact-email {
+			order: 2;
+		}
+
+	}
+
+	@media (max-width: 60rem) {
+
+		.contacts .contact {
+			min-width: 100%;
+		}
+
+		.map {
+			height: 18em;
+			height: 60vh;
+		}
+
+		.footer-img {
+			width: 16em;
+			padding: 0 0 .25em;
+		}
+
+	}
+
+	@media (min-width: 72rem) {
+
+		#main-header {
+			padding: 4.5rem 0;
+		}
+
+		.contacts,
+		.local {
+			margin: 3em auto 2.25em;
+		}
+
+		.map {
+			height: 36em;
+		}
+
+	}
+
+</style>
+
+<header id="main-header" class="flex justify-center">
+
+	<img src="dist/img/type-black_web.png" id="logo" alt="logo La Lolla"/>
+
+</header>
+
+<main id="main" class="grey-200">
+
+	<style scoped>
+
+	</style>
+
+	<article id="hero-contact" class="contacts">
+
+		<section id="contact-phone" class="contact">
+
+			<header class="contact-header">
+
+				<span class="icon">
+					<span class="icon-phone"></span>
+				</span>
+
+			</header>
+
+			<ul class="contact-inner">
+
+				<li><h1 class="contact-title">Telefone</h1></li>
+
+				<li>18 3351 1457</li>
+
+				<li>18 3351 1491</li>
+
+			</ul>
+
+		</section>
+
+		<a href="mailto:promafa@promafa.com.br" id="contact-email" class="contact">
+
+			<header class="contact-header">
+
+			<span class="icon">
+				<span class="icon-mail"></span>
+			</span>
+
+			</header>
+
+			<ul class="contact-inner">
+
+				<li>
+					<h1 class="contact-title">E-mail</h1>
+				</li>
+
+				<li>promafa@promafa.com.br</li>
+
+			</ul>
+
+		</a>
+
+	</article>
+
+	<style scoped>
+
+	</style>
+
+	<article id="local" class="local">
+
+		<section id="local-map" class="map"></section>
+
+		<section id="local-info" class="local-info">
+
+			<header class="local-info-header">
+
+				<span class="icon">
+					<span class="icon-map"></span>
+				</span>
+
+			</header>
+
+			<ul class="local-info-inner">
+
+				<li>
+					<h1 class="local-info-title">Localização</h1>
+				</li>
+
+				<li>Rua São Paulo, 43</li>
+				<li><span class="cep">19970-000</span>, Palmital, SP</li>
+
+			</ul>
+
+		</section>
+
+	</article>
+
+</main>
+
+<footer id="main-footer" class="flex flex-column align-center justify-center grey-800 font-grey-200">
+
+	<a href="http://kabanas.info/" class="footer-img">
+		<img src="dist/img/footer-dev-inverse.png" alt="Kabana's Info & Mowe"/>
+	</a>
+
+	<p style="max-width: 14 em;">
+		<span class="font-grey-500">Uma nova versão do nosso site está sendo desenvolvida por Kabana's Info & Mowe</span>
+	</p>
+
+</footer>
+
+<script>
+
+	var isMobile = false;
+
+	if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) isMobile = true;
+
+	var localMap = document.getElementById('local-map');
+
+	function initLocalMap(canvas) {
+
+		var centerLatLng = {lat: -22.7753073, lng: -50.2077834};
+		var markerLatLng = {lat: -22.77515, lng: -50.2077};
+
+		var styleArray = [
+			{
+				featureType: "all",
+				stylers: [
+					{ saturation: -100 }
+				]
+			},
+			{
+				featureType: "poi",
+				stylers: [
+					{ visibility: "on" }
+				]
+			}
+		];
+
+		var mapOptions = {
+			backgroundColor: '#eeeeee',
+			scrollwheel: false,
+			center: centerLatLng,
+			streetViewControl: false,
+			minZoom: 10,
+			maxZoom: 20,
+			zoom: 18,
+			panControl: true,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			mapTypeControl: false,
+			styles: styleArray
+		};
+
+		var map = new google.maps.Map(canvas, mapOptions);
+
+		var marker = new google.maps.Marker({
+			map: map,
+			position: markerLatLng,
+			title: 'Promafa'
+		});
+
+
+	}
+
+	function initMaps() {
+		initLocalMap(localMap);
+	}
+
+	if (!document.body.classList.contains('mobile')) setTimeout(initMaps, 1000);
+
+</script>
+
+</body>
+</html>

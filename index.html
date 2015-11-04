@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>LaLolla</title>
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<script src="dist/js/villa.min.js"></script>
 	<link rel="stylesheet" href="dist/css/villa.min.css"/>
 	<!--[if lt IE 9]>
@@ -15,5 +17,72 @@
 </head>
 <body class="">
 
+<nav></nav>
+
+<main>
+
+	<header></header>
+
+	<div id="gallery" class="gallery"></div>
+
+</main>
+
+<script src="dist/js/jquery-2.1.4.min.js"></script>
+<script>
+
+	var url = "https://api.instagram.com/v1/users/2244150949/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
+
+	var installery = {};
+
+	installery.target = document.getElementById('gallery');
+
+	installery.data = {};
+
+	installery.setData = function(data) {
+		installery.data = data;
+	};
+
+	installery.build = function() {
+
+		var data, image;
+
+		data = installery.data.data;
+
+		for (var i = data.length; i--; ) {
+
+			console.log(data[i].images);
+
+			image = data[i].images;
+
+			// types of image:
+			//                  thumbnail
+			//                  standard_resolution
+			//                  low_resolution
+
+			var imgElement = document.createElement('img');
+			imgElement.src = image.low_resolution.url;
+
+			installery.target.appendChild(imgElement);
+
+		}
+
+	};
+
+	installery.updateData = function(data) {
+		installery.setData(data);
+		installery.build();
+	};
+
+	$.ajax({
+		type: 'get',
+		dataType: 'jsonp',
+		url: url,
+		success: installery.updateData,
+		error: function() {
+			console.log('ajax error');
+		}
+	});
+
+</script>
 </body>
 </html>
