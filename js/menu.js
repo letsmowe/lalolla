@@ -6,6 +6,12 @@
 
 /* Constructor */
 
+/**
+ * Menu constructor
+ * @param viewport
+ * @param options
+ * @constructor menu
+ */
 function Menu(viewport, options) {
 
 	var self = this;
@@ -262,6 +268,9 @@ Menu.prototype.tests = function(self, move, speed) {
 
 /* Init */
 
+/**
+ * Init the menu, add style and build the menu
+ */
 Menu.prototype.init = function() {
 
 	this.viewport.classList.add('Menu--unsplash');
@@ -271,7 +280,5 @@ Menu.prototype.init = function() {
 	this.initList();
 
 	this.build();
-
-	//;
 
 };
