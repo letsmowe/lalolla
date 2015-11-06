@@ -1,0 +1,120 @@
+/* Main Header */
+
+.MainHeader {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+}
+
+/* Default header style */
+
+@keyframes open {
+
+	0% {
+		height: 100vh;
+	}
+
+	100% {
+		height: 30vh;
+	}
+
+}
+
+.MainHeader--default {
+	-webkit-animation: open .7s ease-out 1s;
+	-o-animation: open .7s ease-out 1s;
+	animation: open .7s ease-out 1s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	/*min-height: 4.5em;*/
+	height: 100vh;
+}
+
+/* Logo */
+
+.MainHeader-logo {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+}
+
+/* Logo SVG */
+
+.MainHeader-logo-svg {
+	-webkit-filter: drop-shadow(-1px 1px 2px rgba(62, 39, 35, .5));
+	filter: drop-shadow(-1px 1px 2px rgba(62, 39, 35, .5));
+	fill: #000000;
+	height: 8em;
+	max-width: 12em;
+	-webkit-transition: fill .8s;
+	-moz-transition: fill .8s;
+	-ms-transition: fill .8s;
+	-o-transition: fill .8s;
+	transition: fill .8s;
+}
+
+/* Logo color styles */
+
+.MainHeader-logo-svg--white {
+	fill: #ffffff;
+}
+
+.MainHeader-logo-svg--cyan {
+	fill: #00838f;
+}
+
+.MainHeader-logo:focus .MainHeader-logo-svg--cyan,
+.MainHeader-logo:hover .MainHeader-logo-svg--cyan {
+	fill: #006064;
+}
+
+.MainHeader-logo-svg--brown {
+	fill: #5d4037;
+}
+
+/* Media */
+
+@media (min-width: 21em) {
+
+	.MainHeader-logo-svg {
+		height: 10em;
+		max-width: 14em;
+	}
+
+}
+
+@media (min-width: 24em) {
+
+	.MainHeader-logo-svg {
+		max-width: 16em;
+	}
+
+}
+
+@media (min-width: 48em) {
+
+	.MainHeader-logo-svg {
+		height: 14em;
+		max-width: 18em;
+	}
+
+}
+
+@media (min-width: 96em) {
+
+	.MainHeader-logo-svg {
+		height: 16em;
+	}
+
+}
