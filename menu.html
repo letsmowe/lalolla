@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/header.css"/>
 <link rel="stylesheet" href="css/installery.css"/>
 <link rel="stylesheet" href="css/footer.css"/>
+<link rel="stylesheet" href="css/menu.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
@@ -17,76 +18,49 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<style>
+<main id="main" style="height: 100vh">
 
-	.Menu {
-		padding: 0 1em;
-	}
-
-	.Menu-title {
-
-	}
-
-	.Menu-list {
-		background-color: #000000;
-		color: #ffffff;
-		display: none;
-		position: fixed;
-	}
-
-</style>
-
-<main>
-
-	<div id="menu" class="Menu">
-
-		<div class="a">hehhehee</div>
-		<div class="a">hehhehee</div>
-		<div class="a">hehhehee</div>
-		<div class="a">hehhehee</div>
-		<div class="a">hehhehee</div>
-
-	</div>
+	<div id="menu" class="Menu"></div>
 
 </main>
 
+<script src="js/menu.js"></script>
 <script>
 
-	function Menu(viewport) {
-
-		var self = this;
-
-		this.viewport = viewport;
-
-		this.onClick = function() {
-
-			console.log(this);
-			self.ctrl();
-
-		};
-
-		viewport.addEventListener('click', this.onClick);
-
-	}
-
-	Menu.prototype.speak = function() {
-
+	var foo = function() {
 		console.log(this);
-
+		document.getElementById('main').classList.toggle('blue');
 	};
 
-	Menu.prototype.ctrl = function() {
+	var menu = new Menu(document.getElementById('menu'), {
+		name: 'cagories',
+		title: 'Categorias',
+		list: [
+			{
+				name: 'categoria-01',
+				title: 'Categoria 01',
+				onClick: foo
+			},
+			{
+				name: 'categoria-02',
+				title: 'Categoria 02',
+				onClick: foo
+			},
+			{
+				name: 'categoria-03',
+				title: 'Categoria 03',
+				onClick: foo
+			},
+			{
+				name: 'categoria-04',
+				title: 'Categoria 04',
+				onClick: foo
+			}
+		]
+	});
 
-		console.log(this);
-
-	};
-
-	var menus = [];
-
-	for (var i = 10; i--; )
-		menus.push(new Menu(document.getElementById('menu')));
-
-	//	menu.speak();
+	menu.init();
+//	menu.tests(menu, false, 300);
 
 </script>
 
