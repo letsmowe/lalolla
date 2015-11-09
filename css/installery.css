@@ -1,0 +1,13 @@
+/* Installery */
+
+.Installery {
+	width: 100%;
+	max-width: 96em;
+	margin: 4.5em auto;
+}
+
+.Image {
+	width: 32em;
+	height: 32em;
+	margin: 0 1.125em 3em;
+}

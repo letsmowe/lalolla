@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="roboto">
+<html lang="en" class="lato">
 <head>
 	<meta charset="UTF-8">
-	<title>Promafa</title>
+	<title>Loja La Lolla - Assis</title>
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<script src="dist/js/villa.min.js"></script>
@@ -17,7 +17,7 @@
 	<script src="dist/js/classList.min.js"></script>
 	<![endif]-->
 </head>
-<body class="font-grey-900 bg-cover grey-100 flex flex-column">
+<body class="font-grey-900 bg-cover flex flex-column">
 
 <script>
 
@@ -99,21 +99,41 @@
 
 	#main-header {
 		width: 100%;
-		padding: 1.5em 0;
+		padding: 1em 0 0;
+	}
+
+	.logotype {
+		max-width: 12em;
+	}
+
+	.border {
+		margin: 1.5em 1.5em;
+	}
+
+	.border .logo {
+		width: 96px;
+		height: 96px;
+	}
+
+	.border .line {
+		border-bottom: solid 2px #ffffff;
+		height: 48px;
+		width: 6em;
+		margin: 0 1em;
 	}
 
 	#main {
 		width: 100%;
 	}
 
-	.contacts,
-	.contacts .contact,
-	.contacts .contact > *,
-	.contacts .contact .contact-header .icon,
+	.infos,
+	.infos .info,
+	.infos .info > *,
+	.infos .info .info-header .icon,
 	.local,
-	.local .local-info,
-	.local .local-info > *,
-	.local .local-info .local-info-header .icon {
+	.local .info,
+	.local .info > *,
+	.local .info .info-header .icon {
 		display: -webkit-box;
 		display: -moz-box;
 		display: -ms-flexbox;
@@ -121,7 +141,7 @@
 		display: flex;
 	}
 
-	.contacts,
+	.infos,
 	.local {
 		-webkit-flex-flow: column wrap;
 		-moz-flex-flow: column wrap;
@@ -131,11 +151,11 @@
 		-moz-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		margin: 1.5em auto 1.5em;
+		margin: .5em auto 1.5em;
 		width: 100%;
 	}
 
-	.contacts {
+	.infos {
 		-webkit-flex-flow: row wrap;
 		-moz-flex-flow: row wrap;
 		-ms-flex-flow: row wrap;
@@ -143,8 +163,8 @@
 		max-width: 72rem;
 	}
 
-	.contacts .contact,
-	.local .local-info {
+	.infos .info,
+	.local .info {
 		-webkit-flex-flow: row nowrap;
 		-moz-flex-flow: row nowrap;
 		-ms-flex-flow: row nowrap;
@@ -164,27 +184,27 @@
 		flex: 1;
 	}
 
-	.local .local-info {
+	.local .info {
 		margin: 3em 0;
 	}
 
-	.contacts .contact > *,
-	.local .local-info > * {
+	.infos .info > *,
+	.local .info > * {
 		-webkit-flex-flow: column nowrap;
 		-moz-flex-flow: column nowrap;
 		-ms-flex-flow: column nowrap;
 		flex-flow: column nowrap;
 	}
 
-	.contacts .contact .contact-title,
-	.local .local-info .local-info-title {
+	.infos .info .info-title,
+	.local .info .info-title {
 		font-size: 1em;
 		margin: 0 0 .5em;
 		font-weight: 900;
 	}
 
-	.contacts .contact .contact-header .icon,
-	.local .local-info .local-info-header .icon {
+	.infos .info .info-header .icon,
+	.local .info .info-header .icon {
 		border-right: solid 1px #bdbdbd;
 		margin-right: 1.5em;
 		-webkit-align-items: center;
@@ -199,8 +219,8 @@
 		width: 6em;
 	}
 
-	.contacts .contact .contact-inner,
-	.local .local-info .local-info-inner {
+	.infos .info .info-inner,
+	.local .info .info-inner {
 		width: 12rem;
 	}
 
@@ -230,15 +250,24 @@
 
 	@media (min-width: 60rem) {
 
-		#contact-fax {
+		.logotype {
+			max-width: 16em;
+		}
+
+		.border .line {
+			width: 16em;
+			margin: 0 1em;
+		}
+
+		#info-local {
 			order: 0;
 		}
 
-		#contact-phone {
+		#info-phone {
 			order: 1;
 		}
 
-		#contact-email {
+		#info-email {
 			order: 2;
 		}
 
@@ -246,7 +275,11 @@
 
 	@media (max-width: 60rem) {
 
-		.contacts .contact {
+		.local {
+			margin-bottom: 0;
+		}
+
+		.infos .info {
 			min-width: 100%;
 		}
 
@@ -265,12 +298,16 @@
 	@media (min-width: 72rem) {
 
 		#main-header {
-			padding: 4.5rem 0;
+			padding: 2.25rem 0 0;
 		}
 
-		.contacts,
+		.infos,
 		.local {
 			margin: 3em auto 2.25em;
+		}
+
+		.local {
+			margin-bottom: 0;
 		}
 
 		.map {
@@ -279,25 +316,43 @@
 
 	}
 
+	.about {
+		font-size: .875em;
+		text-transform: uppercase;
+		margin: 1em 0 0;
+	}
+
 </style>
 
-<header id="main-header" class="flex justify-center">
+<header id="main-header" class="flex flex-column align-center brown-800">
 
-	<img src="dist/img/type-black_web.png" id="logo" alt="logo La Lolla"/>
+	<img src="dist/img/type-white_web.png" id="logo" class="logotype" alt="logo La Lolla"/>
+
+	<span class="about font-white">tendência em moda</span>
+
+	<div class="border flex justify-center">
+
+		<div class="line"></div>
+
+		<div class="logo">
+
+			<img src="dist/img/logo.png" alt="Logo"/>
+
+		</div>
+
+		<div class="line"></div>
+
+	</div>
 
 </header>
 
-<main id="main" class="grey-200">
+<main id="main">
 
-	<style scoped>
+	<article id="hero-contact" class="infos">
 
-	</style>
+		<section id="info-phone" class="info">
 
-	<article id="hero-contact" class="contacts">
-
-		<section id="contact-phone" class="contact">
-
-			<header class="contact-header">
+			<header class="info-header">
 
 				<span class="icon">
 					<span class="icon-phone"></span>
@@ -305,21 +360,44 @@
 
 			</header>
 
-			<ul class="contact-inner">
+			<ul class="info-inner">
 
-				<li><h1 class="contact-title">Telefone</h1></li>
+				<li>
+					<h1 class="info-title">Telefone</h1>
+				</li>
 
-				<li>18 3351 1457</li>
-
-				<li>18 3351 1491</li>
+				<li>18 3323 5941</li>
 
 			</ul>
 
 		</section>
 
-		<a href="mailto:promafa@promafa.com.br" id="contact-email" class="contact">
+		<section id="info-local" class="info">
 
-			<header class="contact-header">
+			<header class="info-header">
+
+				<span class="icon">
+					<span class="icon-map"></span>
+				</span>
+
+			</header>
+
+			<ul class="info-inner">
+
+				<li>
+					<h1 class="info-title">Localização</h1>
+				</li>
+
+				<li>Rua Floriano Peixoto, 438</li>
+				<li><span class="cep">19800-011</span>, Assis, SP</li>
+
+			</ul>
+
+		</section>
+
+		<a href="mailto:contato@lalolla.com.br" id="info-email" class="info">
+
+			<header class="info-header">
 
 			<span class="icon">
 				<span class="icon-mail"></span>
@@ -327,13 +405,13 @@
 
 			</header>
 
-			<ul class="contact-inner">
+			<ul class="info-inner">
 
 				<li>
-					<h1 class="contact-title">E-mail</h1>
+					<h1 class="info-title">E-mail</h1>
 				</li>
 
-				<li>promafa@promafa.com.br</li>
+				<li>contato@lalolla.com.br</li>
 
 			</ul>
 
@@ -349,29 +427,6 @@
 
 		<section id="local-map" class="map"></section>
 
-		<section id="local-info" class="local-info">
-
-			<header class="local-info-header">
-
-				<span class="icon">
-					<span class="icon-map"></span>
-				</span>
-
-			</header>
-
-			<ul class="local-info-inner">
-
-				<li>
-					<h1 class="local-info-title">Localização</h1>
-				</li>
-
-				<li>Rua São Paulo, 43</li>
-				<li><span class="cep">19970-000</span>, Palmital, SP</li>
-
-			</ul>
-
-		</section>
-
 	</article>
 
 </main>
@@ -383,7 +438,7 @@
 	</a>
 
 	<p style="max-width: 14 em;">
-		<span class="font-grey-500">Uma nova versão do nosso site está sendo desenvolvida por Kabana's Info & Mowe</span>
+		<span class="font-grey-500">O nosso site está sendo desenvolvido por Kabana's Info & Mowe</span>
 	</p>
 
 </footer>
@@ -398,8 +453,8 @@
 
 	function initLocalMap(canvas) {
 
-		var centerLatLng = {lat: -22.7753073, lng: -50.2077834};
-		var markerLatLng = {lat: -22.77515, lng: -50.2077};
+		var centerLatLng = {lat: -22.6624367, lng: -50.4160746};
+		var markerLatLng = {lat: -22.6624367, lng: -50.4160746};
 
 		var styleArray = [
 			{
@@ -435,7 +490,7 @@
 		var marker = new google.maps.Marker({
 			map: map,
 			position: markerLatLng,
-			title: 'Promafa'
+			title: 'Loja La Lolla'
 		});
 
 

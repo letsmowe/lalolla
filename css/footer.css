@@ -1,0 +1,65 @@
+/* Main Footer */
+
+.MainFooter {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+}
+
+/* Default footer style */
+
+.MainFooter--default {
+	min-height: 6em;
+	margin-bottom: 3em;
+}
+
+/* Footer Body Text */
+
+.MainFooter-bodyText p {
+	text-align: center;
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: .75em;
+}
+
+/* Logo */
+
+.MainFooter-logo {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	height: 100%;
+	margin: 1em 0 0;
+	padding: 1em 0;
+	width: 100%;
+}
+
+/* Logo SVG */
+
+.MainFooter-logo-svg {
+	fill: #000000;
+	height: 3em;
+	-webkit-transition: fill .8s;
+	-moz-transition: fill .8s;
+	-ms-transition: fill .8s;
+	-o-transition: fill .8s;
+	transition: fill .8s;
+}
+
+.MainFooter-logo-svg--cyan {
+	fill: #0097a7;
+}
+
+.MainFooter-logo-svg--grey {
+	fill: #424242;
+}

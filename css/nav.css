@@ -1,0 +1,53 @@
+/* Main Nav */
+
+.MainNav {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+}
+
+.MainNav--sidebar {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 1;
+}
+
+.MainNav--sidebar.is-animating {
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+.MainNav-header {
+	width: 3em;
+	height: 10em;
+}
+
+.MainNav-body {
+	flex: 1 0 0;
+	height: 100%;
+	width: 100%;
+}
+
+@media (min-width: 24em) {
+
+	.MainNav--sidebar {
+		width: 21em;
+	}
+
+}
+
+@media (min-width: 48em) {
+
+	.MainNav--sidebar {
+		width: 30em;
+	}
+
+}
