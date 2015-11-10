@@ -1,5 +1,5 @@
 /*!
- * Mowe Installery v0.5.0 (http://letsmowe.com/)
+ * Mowe Installery v1.0.0 (http://letsmowe.com/)
  * Copyright 2013-2016 Kabana's Info Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
