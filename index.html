@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
 <link rel="stylesheet" href="css/nav.css"/>
 <link rel="stylesheet" href="css/header.css"/>
 <link rel="stylesheet" href="css/installery.css"/>
@@ -19,31 +20,57 @@
 
 <nav id="main-nav" class="MainNav MainNav--sidebar">
 
-	<div id="main-nav-header" class="MainNav-header cyan-800">
+	<div id="main-nav-header" class="MainNav-header">
 
-		<ul class="MainNav-header-menu">
+		<ul class="MainNav-menu">
 
-			<li class="MainNav-header-menu-item"></li>
-			<li class="MainNav-header-menu-item"></li>
-			<li class="MainNav-header-menu-item"></li>
+			<a href="#" class="MainNav-menu-item  MainNav-menu-item--vertical font-cyan-a700 h-cyan-a700 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span>Loja</span>
+
+				</span>
+
+			</a>
+
+			<a href="#" class="MainNav-menu-item  MainNav-menu-item--vertical font-cyan-a700 h-cyan-a700 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span>Marcas</span>
+
+				</span>
+
+			</a>
+
+			<a href="#" class="MainNav-menu-item font-brown-700 h-brown-600 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span class="icon-mail-alt"></span>
+
+				</span>
+
+			</a>
 
 		</ul>
 
 	</div>
 
-	<section id="main-nav-body" class="MainNav-body grey">
+	<section id="main-nav-body" class="MainNav-body cyan-900">
 
-		<article class="MainNav-item"></article>
+		<article class="MainNav-item cyan-800"></article>
 
-		<article class="MainNav-item"></article>
+		<article class="MainNav-item cyan-700"></article>
 
-		<article class="MainNav-item"></article>
+		<article class="MainNav-item brown-800"></article>
 
 	</section>
 
 </nav>
 
-<header class="MainHeader MainHeader--default grey-50">
+<header id="main-header" class="MainHeader MainHeader--default grey-50">
 
 	<a href="#" class="MainHeader-logo">
 
@@ -294,11 +321,12 @@
 <script src="js/nav.js"></script>
 <script>
 
+	var nav = new Nav();
 	nav.init();
 
 </script>
-<script src="dist/js/jquery-2.1.4.min.js"></script>
 <script src="js/menu.js"></script>
+<script src="dist/js/jquery-2.1.4.min.js"></script>
 <script src="js/installery.js"></script>
 <script>
 

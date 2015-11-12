@@ -26,13 +26,13 @@
 }
 
 .MainHeader--default {
-	/*-webkit-animation: open .7s ease-out .3s;*/
-	/*-o-animation: open .7s ease-out .3s;*/
-	/*animation: open .7s ease-out .3s;*/
-	/*-webkit-animation-fill-mode: forwards;*/
-	/*-o-animation-fill-mode: forwards;*/
-	/*animation-fill-mode: forwards;*/
-	/*min-height: 4.5em;*/
+	-webkit-animation: open .7s ease-out .3s;
+	-o-animation: open .7s ease-out .3s;
+	animation: open .7s ease-out .3s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	min-height: 4.5em;
 	height: 100vh;
 }
 
@@ -135,12 +135,12 @@
 
 .splash-bottom {
 	background-color: #fafafa;
-	/*-webkit-animation: close .7s ease-out .3s;*/
-	/*-o-animation: close .7s ease-out .3s;*/
-	/*animation: close .7s ease-out .3s;*/
-	/*-webkit-animation-fill-mode: forwards;*/
-	/*-o-animation-fill-mode: forwards;*/
-	/*animation-fill-mode: forwards;*/
+	-webkit-animation: close .7s ease-out .3s;
+	-o-animation: close .7s ease-out .3s;
+	animation: close .7s ease-out .3s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 	bottom: 0;
 	position: fixed;
 	height: 40vh;

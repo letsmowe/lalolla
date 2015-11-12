@@ -25,7 +25,7 @@ function Installery(viewport, options) {
 	this.view.options = {};
 	this.view.options.hashtag = false;
 	this.view.options.instagramPerView = 6;
-	this.view.options.brandPerView = 2;
+	this.view.options.brandPerView = 1;
 
 	this.instagram = {};
 	this.instagram.data = [];
@@ -54,17 +54,17 @@ function Installery(viewport, options) {
  * Returns true if number (n) is on array (arr)
  * It can return true if the number (n) doesn't have difference from the index (i)
  * @param arr {Array}
- * @param n {number}
+ * @param value {number|string}
  * @param difference {number|boolean}
  * @return {boolean}
  */
-Installery.prototype.isOnArray = function(arr, n, difference) {
+Installery.prototype.isOnArray = function(arr, value, difference) {
 
 	for (var i = arr.length; i--; )
-		if ( arr[i] == n )
+		if ( arr[i] == value )
 			return true;
 		else if (difference)
-			if ( !( ( arr[i] - difference > n ) || ( arr[i] + difference < n ) ) )
+			if ( !( ( arr[i] - difference > value ) || ( arr[i] + difference < value ) ) )
 				return true;
 
 	return false;
@@ -94,6 +94,15 @@ Installery.prototype.getNumbers = function(n, min, max, difference) {
 	}
 
 	return arr;
+
+};
+
+Installery.prototype.hasTag = function(media, tag) {
+
+	if (this.isOnArray(media.tags, tag, false))
+		return true;
+
+	return false;
 
 };
 
@@ -128,12 +137,22 @@ Installery.prototype.getInstagramMedia = function(n) {
 	arr = [];
 	max = this.view.lastInstagram_id + n;
 
-	while ( this.view.lastInstagram_id < max ) {
+	if (!this.view.lastInstagram_id) // first item
+		for (var i = this.instagram.data.length; i--; )
+			if (this.hasTag(this.instagram.data[i], 'inauguracao')) {
 
-		arr.push(this.instagram.data[this.view.lastInstagram_id]);
-		this.view.lastInstagram_id++;
+				arr.push(this.instagram.data[i]);
+				this.view.lastInstagram_id++;
 
-	}
+			}
+
+	while ( this.view.lastInstagram_id < max ) // default
+		if (this.instagram.data[this.view.lastInstagram_id]) {
+
+			arr.push(this.instagram.data[this.view.lastInstagram_id]);
+			this.view.lastInstagram_id++;
+
+		}
 
 	return arr;
 
@@ -148,8 +167,6 @@ Installery.prototype.getInstagramMedia = function(n) {
  * @return {Array}
  */
 Installery.prototype.mergeMedia = function(brand, instagram, n) {
-
-	console.log(n);
 
 	var arr, brandCount, brandPositions, instagramCount;
 
@@ -188,7 +205,12 @@ Installery.prototype.loadMedia = function(instagramItems, brandItems) {
 	instagram = this.getInstagramMedia(instagramItems);
 	brand = this.getBrandMedia(brandItems);
 
-	media = this.mergeMedia(brand, instagram, ( instagramItems + brandItems ));
+	console.log(instagram);
+	console.log(brand);
+
+	console.log(instagram.length + brand.length);
+
+	media = this.mergeMedia(brand, instagram, ( instagram.length + brand.length ));
 
 	return media;
 
@@ -198,6 +220,8 @@ Installery.prototype.buildMediaItem = function(media) {
 
 	var element = document.createElement('article');
 	element.classList.add('InstalleryMedia');
+
+	console.log(media);
 
 	if (media.brand)
 		element.classList.add('InstalleryMedia--brand');
