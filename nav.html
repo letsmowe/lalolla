@@ -115,6 +115,10 @@
 			padding-right: .375em;
 		}
 
+		.fa-facebook {
+			margin-right: .375em;
+		}
+
 		.social-content .fa {
 			padding-right: .5em;
 			cursor: pointer;
@@ -249,7 +253,6 @@
 
 <body>
 <nav>
-
 	<header class="nav-header">
 
 		<div class="logo"></div>
@@ -257,6 +260,7 @@
 			<div class="attendance-wrapper flex justify-between">
 				<div class="attendance-day flex flex-column align-center h-grey-200">
 					<span class="title">Seg. a Sex.</span>
+
 					<div class="hours flex flex-column align-center">
 						<span class="hour">9:00 às 18:00</span>
 						<!--<span class="hour">13:00 às 18:00</span>-->
@@ -264,6 +268,7 @@
 				</div>
 				<div class="attendance-day flex flex-column align-center justify-center h-grey-200">
 					<span class="title flex">Sábado</span>
+
 					<div class="hours flex flex-column align-center">
 						<span class="hour">8:00 às 15:00</span>
 					</div>
@@ -289,27 +294,28 @@
 				</div>
 			</div>
 
-		<div id="map"></div>
+			<div id="map"></div>
 
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
+			<script src="https://maps.googleapis.com/maps/api/js"></script>
 
-		<script TYPE="text/javascript">
+			<script TYPE="text/javascript">
 
-			var map;
-			function initMap() {
-				console.log('teste');
-				map = new google.maps.Map(document.getElementById('map'), {
-					center: {lat: -22.66242, lng: -50.41591},
-					zoom: 17,
-					scrollwheel: false,
-				});
-				console.log(map);
-			}
+				var map;
+				function initMap() {
+					console.log('teste');
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: {lat: -22.66242, lng: -50.41591},
+						zoom: 17,
+						scrollwheel: false,
+					});
+					console.log(map);
+				}
 				initMap();
-		</script>
-	</div>
+			</script>
+		</div>
 
-	</div><!--FIM LOCAL-->
+	</div>
+	<!--FIM LOCAL-->
 
 	<div class="social">
 		<div class="social-wrapper align-center">
@@ -318,31 +324,33 @@
 					<header>
 						<span class="fa fa-phone fa-2x"></span>
 					</header>
-						<span class="value-phone">18 3322 2202</span>
+					<span class="value-phone">18 3322 2202</span>
 				</div>
 				<div class="social-content flex align-center justify-start">
 					<header>
 						<span class="fa fa-whatsapp fa-2x"></span>
 					</header>
-						<span class="value-whatsapp">18 9 9923 2220</span>
+					<span class="value-whatsapp">18 9 9923 2220</span>
 				</div>
-				<a href="http://www.instagram.com/lalollaloja" target="_blank" class="social-content flex align-center justify-start">
+				<a href="http://www.instagram.com/lalollaloja" target="_blank"
+				   class="social-content flex align-center justify-start">
 					<header>
 						<span class="fa fa-instagram fa-2x"></span>
 					</header>
-						<span class="value-instagram">instagram.com/lalollaloja</span>
+					<span class="value-instagram">instagram.com/lalollaloja</span>
 				</a>
-				<a href="http://www.facebook.com" target="_blank" class="social-content flex align-center justify-start">
+				<a href="http://www.facebook.com" target="_blank"
+				   class="social-content flex align-center justify-start">
 					<header>
-						<span class="fa fa-facebook-official fa-2x"></span>
+						<span class="fa fa-facebook fa-2x"></span>
 					</header>
-						<span class="value-facebook">facebook.com/lalolla</span>
+					<span class="value-facebook">facebook.com/lalolla</span>
 				</a>
 				<a href="http://twitter.com" target="_blank" class="social-content flex align-center justify-start">
 					<header>
 						<span class="fa fa-twitter fa-2x"></span>
 					</header>
-						<span class="value-twitter">twitter.com/lalolla</span>
+					<span class="value-twitter">twitter.com/lalolla</span>
 				</a>
 			</div>
 		</div>
@@ -351,23 +359,19 @@
 	<footer class="footer-infos grey-400">
 		<div class="footer-info">
 			<div class="about-wrapper flex justify-around align-center">
-			<div class="about flex flex-column align-center">
-				<span class="info-footer">©Lalolla.com.br 2015</span>
-				<span class="address-footer grey-400">Rua Floriano Peixoto, 438</span>
-				<span class="address-footer grey-400">Assis - SP</span>
-			</div>
-			<div class="about-logo">
-				<a href="http://wwww.kabanas.info">
-					<img src="dist/img/logo_kabanas.png" alt="kabanas info"/>
-				</a>
-			</div>
+				<div class="about flex flex-column align-center">
+					<span class="info-footer">©Lalolla.com.br 2015</span>
+					<span class="address-footer grey-400">Rua Floriano Peixoto, 438</span>
+					<span class="address-footer grey-400">Assis - SP</span>
+				</div>
+				<div class="about-logo">
+					<a href="http://wwww.kabanas.info">
+						<img src="dist/img/logo_kabanas.png" alt="kabanas info"/>
+					</a>
+				</div>
 			</div>
 		</div>
 	</footer>
-
-
-
-	</nav>
-
+</nav>
 </body>
 </html>
