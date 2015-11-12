@@ -38,9 +38,8 @@
 	height: 3.75em;
 }
 
-.MainNav-menu-item:active,
 .MainNav-menu-item:focus {
-	background-color: red;
+	outline: dotted 1px #18ffff;
 }
 
 .MainNav--sidebar .MainNav-menu-item {

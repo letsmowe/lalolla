@@ -1,0 +1,8 @@
+/* Constructor */
+
+function Contact() {
+
+
+
+}
+

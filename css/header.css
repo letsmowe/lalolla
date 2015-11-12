@@ -76,7 +76,7 @@
 
 .MainHeader-logo:focus .MainHeader-logo-svg--cyan,
 .MainHeader-logo:hover .MainHeader-logo-svg--cyan {
-	fill: #006064;
+	/*fill: #006064;*/
 }
 
 .MainHeader-logo-svg--brown {

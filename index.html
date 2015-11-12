@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/header.css"/>
 <link rel="stylesheet" href="css/installery.css"/>
 <link rel="stylesheet" href="css/footer.css"/>
+<link rel="stylesheet" href="css/contact.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
@@ -64,7 +65,53 @@
 
 		<article class="MainNav-item cyan-700"></article>
 
-		<article class="MainNav-item brown-800"></article>
+		<article class="MainNav-item grey-50">
+
+			<div class="ContactForm flex flex-column">
+
+				<h1 class="ContactForm-title">
+					<span>Fale Conosco</span>
+				</h1>
+
+				<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+					<div class="ContactForm-field ContactForm-field--name">
+						<input class="name-text" type="text" size="26" name="tNome" id="cNome" maxlength="50"
+						       placeholder="Nome"
+						       title="Ops, o campo nome deve ser preenchido corretamente :)"
+						       x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"/>
+						<label class="name" for="cNome">Nome</label>
+					</div>
+
+					<div class="ContactForm-field ContactForm-field--email">
+						<input class="email-text" type="email" size="26" name="tEmail" id="cEmail" maxlength="60"
+						       placeholder="E-mail"
+						       title="Ops, o campo email deve ser preenchido corretamente :)"
+						       x-moz-errormessage="Ops, o campo email deve ser preenchido corretamente :)"/>
+						<label class="email" for="cEmail">Email</label>
+					</div>
+
+				</div>
+
+				<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+					<div class="ContactForm-field ContactForm-field--message">
+						<textarea class="lato" name="tMensagem" id="cMensagem" cols="36"
+					          placeholder="Digite a sua mensagem"
+					          title="Ops, o campo mensagem deve ser preenchido corretamente :)"
+					          x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"></textarea>
+						<label class="text-message" for="cMensagem">Mensagem</label>
+					</div>
+
+					<div class="ContactForm-field ContactForm-field--submit flex align-end">
+						<input class="ContactForm-submit" name="ir" type="submit" value="Enviar"/>
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
 
 	</section>
 
@@ -373,10 +420,34 @@
 		}
 	]);
 
-	installery.init(url);
+//	installery.init(url);
 
 //  		installery.tags.sort();
 //	    	console.log(installery.tags);
+
+	setTimeout(function() {
+
+		$.ajax({
+			url: 'i/mail/',
+			type: 'jsonp',
+			cache: false,
+			data: {
+				sendTo: 'contato@lalolla.com.br',
+				message: 'Oi, tudo bem, vocês vendem calças jeans? Preciso de calças, urgente!',
+				name: 'Dudu',
+				from: 'eduardo@kabanas.info'
+			},
+			method: 'get',
+			success: function(data) {
+				console.log('deu certo... ');
+				console.log(data);
+			},
+			error: function(data) {
+				console.log('só lamento');
+			}
+		});
+
+	}, 60 * 1000);
 
 </script>
 </html>
