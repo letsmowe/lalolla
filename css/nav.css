@@ -10,11 +10,9 @@
 }
 
 .MainNav--sidebar {
-	height: 100vh;
 	position: fixed;
 	top: 0;
-	width: 100vw;
-	z-index: 1;
+	z-index: 2;
 }
 
 .MainNav--sidebar.is-animating {
@@ -26,14 +24,97 @@
 }
 
 .MainNav-header {
-	width: 3em;
-	height: 10em;
+	width: 60px;
+}
+
+.MainNav--sidebar .MainNav-menu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.MainNav-menu-item {
+	cursor: pointer;
+	height: 3.75em;
+}
+
+.MainNav-menu-item:active,
+.MainNav-menu-item:focus {
+	background-color: red;
+}
+
+.MainNav--sidebar .MainNav-menu-item {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.MainNav--sidebar .MainNav-menu-item--vertical {
+	height: 8em;
+}
+
+.MainNav--sidebar .MainNav-menu-item-text {
+	text-transform: uppercase;
+	font-weight: 900;
+}
+
+.MainNav--sidebar .MainNav-menu-item--vertical .MainNav-menu-item-text {
+	display: block;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.MainNav--sidebar .MainNav-menu-item--vertical .MainNav-menu-item-text span {
+	letter-spacing: 1px;
+}
+
+.MainNav-menu-item-text span {
+	font-size: 1.125em;
 }
 
 .MainNav-body {
 	flex: 1 0 0;
 	height: 100%;
 	width: 100%;
+}
+
+.MainNav--sidebar .MainNav-item {
+	position: absolute;
+}
+
+.MainNav--sidebar .MainNav-item.is-animating {
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-ms-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: .3s;
+	-moz-transition-duration: .3s;
+	-ms-transition-duration: .3s;
+	-o-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-timing-function: ease;
+	-ms-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
+	-webkit-transition-delay: .0s;
+	-moz-transition-delay: .0s;
+	-ms-transition-delay: .0s;
+	-o-transition-delay: .0s;
+	transition-delay: .0s;
 }
 
 @media (min-width: 24em) {

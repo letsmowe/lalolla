@@ -4,10 +4,42 @@
 	width: 100%;
 	max-width: 96em;
 	margin: 4.5em auto;
+	justify-content: center;
 }
 
-.Image {
+.InstalleryMedia {
 	width: 32em;
 	height: 32em;
 	margin: 0 1.125em 3em;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.InstalleryMedia--instagram {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.InstalleryMedia--brand {
+	background-color: #ffffff;
+	background-size: 50%;
+	-webkit-transition: all .1s ease-in;
+	-moz-transition: all .1s ease-in;
+	-ms-transition: all .1s ease-in;
+	-o-transition: all .1s ease-in;
+	transition: all .1s ease-in;
+}
+
+.InstalleryMedia--brand:hover {
+	background-size: 60%;
+}
+
+@media (max-width: 36em) {
+
+	.InstalleryMedia {
+		height: 20em;
+	}
+
 }

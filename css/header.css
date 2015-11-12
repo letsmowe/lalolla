@@ -26,13 +26,13 @@
 }
 
 .MainHeader--default {
-	-webkit-animation: open .7s ease-out 1s;
-	-o-animation: open .7s ease-out 1s;
-	animation: open .7s ease-out 1s;
+	-webkit-animation: open .7s ease-out .3s;
+	-o-animation: open .7s ease-out .3s;
+	animation: open .7s ease-out .3s;
 	-webkit-animation-fill-mode: forwards;
 	-o-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
-	/*min-height: 4.5em;*/
+	min-height: 4.5em;
 	height: 100vh;
 }
 
@@ -117,4 +117,42 @@
 		height: 16em;
 	}
 
+}
+
+@keyframes close {
+
+	0% {
+		box-shadow: 0 -1px 4px rgba(0,0,0,.1);
+		bottom: 0;
+	}
+
+	100% {
+		background-color: #f5f5f5;
+		bottom: -40vh;
+	}
+
+}
+
+.splash-bottom {
+	background-color: #fafafa;
+	-webkit-animation: close .7s ease-out .3s;
+	-o-animation: close .7s ease-out .3s;
+	animation: close .7s ease-out .3s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	bottom: 0;
+	position: fixed;
+	height: 40vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	z-index: 1;
+}
+
+.splash-bottom .logo-splash {
+	fill: #00838f;
+	max-width: 8em;
+	width: 100%;
 }
