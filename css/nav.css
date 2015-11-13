@@ -10,8 +10,16 @@
 }
 
 .MainNav--sidebar {
+	height: 100%;
+	left: 100%;
 	position: fixed;
 	top: 0;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+	width: 100%;
 	z-index: 2;
 }
 
@@ -23,8 +31,20 @@
 	transition: all .3s ease-in;
 }
 
-.MainNav-header {
+.MainNav-header {  }
+
+.MainNav--sidebar .MainNav-controller {
+	z-index: 5;
+	position: absolute;
+	width: 3.75em;
+	right: 100%;
+}
+
+.MainNav--sidebar .MainNav-header {
 	width: 60px;
+	position: absolute;
+	z-index: 4;
+	top: 3.75em;
 }
 
 .MainNav--sidebar .MainNav-menu {
@@ -33,15 +53,18 @@
 	height: 100%;
 }
 
+.MainNav-controller,
 .MainNav-menu-item {
 	cursor: pointer;
 	height: 3.75em;
 }
 
+.MainNav-controller:focus,
 .MainNav-menu-item:focus {
 	outline: dotted 1px #18ffff;
 }
 
+.MainNav--sidebar .MainNav-controller,
 .MainNav--sidebar .MainNav-menu-item {
 	display: -webkit-box;
 	display: -moz-box;
@@ -58,9 +81,14 @@
 }
 
 .MainNav--sidebar .MainNav-menu-item--vertical {
-	height: 8em;
+	height: 4.5em;
 }
 
+.MainNav--sidebar .MainNav-menu-item--brands {
+	height: 6em;
+}
+
+.MainNav--sidebar .MainNav-controller-text,
 .MainNav--sidebar .MainNav-menu-item-text {
 	text-transform: uppercase;
 	font-weight: 900;
@@ -78,19 +106,25 @@
 .MainNav--sidebar .MainNav-menu-item--vertical .MainNav-menu-item-text span {
 	letter-spacing: 1px;
 }
-
+.MainNav-controller-text span,
 .MainNav-menu-item-text span {
 	font-size: 1.125em;
 }
 
-.MainNav-body {
-	flex: 1 0 0;
+.MainNav-body {  }
+
+.MainNav--sidebar .MainNav-body {
 	height: 100%;
+	position: absolute;
 	width: 100%;
+	z-index: 3;
 }
 
 .MainNav--sidebar .MainNav-item {
+	overflow-y: auto;
 	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 .MainNav--sidebar .MainNav-item.is-animating {
@@ -119,15 +153,24 @@
 @media (min-width: 24em) {
 
 	.MainNav--sidebar {
-		width: 21em;
+		width: 24em;
 	}
 
 }
 
-@media (min-width: 48em) {
+@media (min-width: 36em) {
 
 	.MainNav--sidebar {
-		width: 30em;
+		width: 28em;
+	}
+
+}
+
+@media (min-height: 24em) {
+
+	.MainNav--sidebar .MainNav-menu-item--brands,
+	.MainNav--sidebar .MainNav-menu-item--vertical {
+		height: 8em;
 	}
 
 }

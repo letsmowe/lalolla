@@ -24,7 +24,7 @@ function Installery(viewport, options) {
 
 	this.view.options = {};
 	this.view.options.hashtag = false;
-	this.view.options.instagramPerView = 6;
+	this.view.options.instagramPerView = 5;
 	this.view.options.brandPerView = 1;
 
 	this.instagram = {};
@@ -99,10 +99,7 @@ Installery.prototype.getNumbers = function(n, min, max, difference) {
 
 Installery.prototype.hasTag = function(media, tag) {
 
-	if (this.isOnArray(media.tags, tag, false))
-		return true;
-
-	return false;
+	return this.isOnArray(media.tags, tag, false);
 
 };
 
@@ -132,10 +129,12 @@ Installery.prototype.getBrandMedia = function(n) {
  */
 Installery.prototype.getInstagramMedia = function(n) {
 
-	var arr, max;
+	var arr, max, isOver;
 
 	arr = [];
 	max = this.view.lastInstagram_id + n;
+
+	isOver = false;
 
 	if (!this.view.lastInstagram_id) // first item
 		for (var i = this.instagram.data.length; i--; )
@@ -146,13 +145,13 @@ Installery.prototype.getInstagramMedia = function(n) {
 
 			}
 
-	while ( this.view.lastInstagram_id < max ) // default
+	while ( this.view.lastInstagram_id < max && !isOver ) // default
 		if (this.instagram.data[this.view.lastInstagram_id]) {
 
 			arr.push(this.instagram.data[this.view.lastInstagram_id]);
 			this.view.lastInstagram_id++;
 
-		}
+		} else isOver = !isOver;
 
 	return arr;
 
@@ -204,11 +203,6 @@ Installery.prototype.loadMedia = function(instagramItems, brandItems) {
 
 	instagram = this.getInstagramMedia(instagramItems);
 	brand = this.getBrandMedia(brandItems);
-
-	console.log(instagram);
-	console.log(brand);
-
-	console.log(instagram.length + brand.length);
 
 	media = this.mergeMedia(brand, instagram, ( instagram.length + brand.length ));
 
@@ -266,9 +260,9 @@ Installery.prototype.initMedia = function() {
 
 	this.loadView();
 
+	// persist 7 per 1 brand for the next load
 	this.view.options.instagramPerView = 7;
 	this.view.options.brandPerView = 1;
-
 
 };
 

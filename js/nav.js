@@ -1,6 +1,13 @@
+/*!
+ * Mowe Nav v1.0.0 (http://letsmowe.com/)
+ * Copyright 2013-2016 Kabana's Info Developers
+ * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
+ */
 
-/* Constructor */
-
+/**
+ * Constructor of Nav
+ * @constructor nav
+ */
 function Nav() {
 
 	var self = this;
@@ -15,6 +22,10 @@ function Nav() {
 	this.body = {};
 	this.body.viewport = document.getElementById('main-nav-body');
 
+	this.controller = {};
+	this.controller.viewport = document.getElementById('main-nav-controller');
+	this.controller.icon = document.getElementById('main-nav-controller-icon');
+
 	this.body.items = [];
 
 	this.menu = {};
@@ -25,42 +36,82 @@ function Nav() {
 	this.resizeCtrl = function() {
 
 		self.resize();
-		self.move();
+
+	};
+
+	this.controllerClickCtrl = function() {
+
+		self.toggle(this, true);
+
+		//self.header.viewport.style.left = 0;
 
 	};
 
 	this.header.itemClickCtrl = function() {
 
-		if (!self.active)
-			self.active = !self.active;
-		else if (this.brother.classList.contains('is-active'))
-			self.active = !self.active;
-
-		self.translate(this, true);
+		self.toggle(this, false);
 
 	};
 
 }
 
-Nav.prototype.resizeItems = function() {
+Nav.prototype.toggleControllerIcon = function() {
 
-	for (var i = this.body.items.length; i--; ) {
-		this.body.items[i].style.height = this.body.viewport.offsetHeight + 'px';
-		this.body.items[i].style.width = this.body.viewport.offsetWidth + 'px';
+	if (self.active) {
+		self.controller.icon.classList.remove('icon-menu');
+		self.controller.icon.classList.add('icon-cancel');
+	} else {
+		self.controller.icon.classList.remove('icon-menu');
+		self.controller.icon.classList.add('icon-cancel');
 	}
 
 };
 
-Nav.prototype.move = function() {
+Nav.prototype.resizeDesktop = function() {
 
 	var self = this;
 
-	this.viewport.classList.remove('is-animating');
+	this.header.viewport.style.right = 100 + '%';
+	this.header.viewport.style.left = 'auto';
 
-	this.viewport.style.left = ( this.mainHeader.offsetWidth - 60 ) + 'px';
+	this.body.viewport.style.left = 0;
+
+	if (this.active) {
+		this.controller.viewport.style.display = 'flex';
+		this.controller.viewport.style.right = '100%';
+		this.controller.viewport.style.left = 'auto';
+	} else {
+		this.controller.viewport.style.display = 'none';
+	}
 
 	setTimeout(function() {
-		self.viewport.classList.add('is-animating');
+		self.body.viewport.style.width = self.viewport.offsetWidth + 'px';
+	}, 300);
+
+};
+
+Nav.prototype.resizeMobile = function() {
+
+	var self = this;
+
+	this.controller.viewport.style.display = 'flex';
+
+	this.header.viewport.style.right = 'auto';
+	this.header.viewport.style.left = 0;
+
+	if (this.active) {
+		this.controller.viewport.style.right = 'auto';
+		this.controller.viewport.style.left = 0;
+	} else {
+		this.controller.viewport.style.left = 'auto';
+		this.controller.viewport.style.right = 100 + '%';
+		this.body.viewport.style.left = 0;
+	}
+
+	this.body.viewport.style.left = this.header.viewport.offsetWidth + 'px';
+
+	setTimeout(function() {
+		self.body.viewport.style.width = ( self.viewport.offsetWidth - self.header.viewport.offsetWidth ) + 'px';
 	}, 300);
 
 };
@@ -71,9 +122,14 @@ Nav.prototype.resize = function() {
 
 	this.viewport.classList.remove('is-animating');
 
-	this.viewport.style.height = window.innerHeight + 'px';
+	this.translateViewport();
 
-	this.resizeItems();
+	setTimeout(function() {
+		if (window.innerWidth < 420)
+			self.resizeMobile();
+		else
+			self.resizeDesktop();
+	}, 300);
 
 	setTimeout(function() {
 		self.viewport.classList.add('is-animating');
@@ -87,6 +143,15 @@ Nav.prototype.translateItems = function(current) {
 
 	self = this;
 
+	if (!current) {
+
+		current = this.body.viewport.querySelector('.is-active');
+
+		if (!current)
+			current = this.body.items[ this.body.items.length - 1 ];
+
+	}
+
 	for (var i = this.body.items.length; i--; ) {
 		item = this.body.items[i];
 		item.style.display = 'block';
@@ -96,11 +161,9 @@ Nav.prototype.translateItems = function(current) {
 		item.classList.add('is-animating');
 	}
 
-	if (current) {
-		current.classList.add('is-active');
-		current.style.transform = 'translateX(0px)';
-		current.style.zIndex = 3;
-	}
+	current.classList.add('is-active');
+	current.style.transform = 'translateX(0px)';
+	current.style.zIndex = 3;
 
 	setTimeout(function() {
 		for (var j = self.body.items.length; j--; ) {
@@ -114,27 +177,59 @@ Nav.prototype.translateItems = function(current) {
 
 Nav.prototype.translateViewport = function() {
 
-	if (this.active) this.viewport.style.transform = 'translateX(-' + ( this.body.viewport.offsetWidth ) + 'px)';
-	else this.viewport.style.transform = 'translateX(' + 0 + ')';
+	var translate;
+
+	if (this.active) {
+		translate = - this.viewport.offsetWidth + 'px';
+	} else {
+		translate = 0;
+	}
+
+	this.viewport.style.webkitTransform = 'translateX(' + translate + ')';
+	this.viewport.style.msTransform = 'translateX(' + translate + ')';
+	this.viewport.style.transform = 'translateX(' + translate + ')';
 
 };
 
 Nav.prototype.translate = function(event, translateItems) {
 
-	this.translateViewport();
+	var self = this;
 
-	this.translateItems( translateItems ? event.brother : false );
+	setTimeout(function() {
+		self.translateViewport();
+		self.translateItems( translateItems ? event.brother : false );
+	}, 100);
+
+};
+
+Nav.prototype.toggle = function(event, controller) {
+
+	if (!this.active)
+		this.active = !this.active;
+	else if ( (controller) || (event.brother.classList.contains('is-active')) )
+		this.active = !this.active;
+
+	this.resize();
+
+	this.translate(event, !controller);
 
 };
 
 Nav.prototype.getItems = function() {
 
-	var menuItems = this.header.viewport.getElementsByClassName('MainNav-menu-item');
-	var items = this.body.viewport.getElementsByClassName('MainNav-item');
+	var menuItems = this.header.viewport.querySelectorAll('.MainNav-menu-item');
+	var items = this.body.viewport.querySelectorAll('.MainNav-item');
 
 	for (var i = items.length; i--; ) {
 
-		menuItems[i].addEventListener('click', this.header.itemClickCtrl);
+		addListener({
+			element: menuItems[i],
+			type: 'click',
+			crossType: 'onclick',
+			listener: this.header.itemClickCtrl,
+			useCapture: false
+		});
+
 		items[i].brother = menuItems[i];
 		menuItems[i].brother = items[i];
 		this.menu.items.push(menuItems[i]);
@@ -146,14 +241,27 @@ Nav.prototype.getItems = function() {
 
 Nav.prototype.init = function () {
 
+	addListener({
+		element: this.controller.viewport,
+		type: 'click',
+		crossType: 'onclick',
+		listener: this.controllerClickCtrl,
+		useCapture: false
+	});
+
 	this.getItems();
 
 	this.resize();
-	this.move();
 
 	this.translate(this, false);
 
 	// add event listeners
-	window.addEventListener('resize', this.resizeCtrl);
+	addListener({
+		element: window,
+		type: 'resize',
+		crossType: 'onresize',
+		listener: this.resizeCtrl,
+		useCapture: false
+	});
 
 };

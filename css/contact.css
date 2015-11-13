@@ -144,7 +144,7 @@
 .ContactForm-field textarea {
 	font-size: 1em;
 	line-height: 1.5;
-	min-height: 6em;
+	min-height: 4em;
 	min-width: 100%;
 	padding: .5em 0;
 }
@@ -164,4 +164,16 @@
 .ContactForm-field .ContactForm-submit:focus {
 	background-color: #e0e0e0;
 	margin: .5em;
+}
+
+@media (min-width: 72em) {
+
+	.ContactForm-field textarea {
+		font-size: 1em;
+		line-height: 1.5;
+		min-height: 6em;
+		min-width: 100%;
+		padding: .5em 0;
+	}
+
 }

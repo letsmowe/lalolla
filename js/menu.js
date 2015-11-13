@@ -4,10 +4,8 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
-/* Constructor */
-
 /**
- * Menu constructor
+ * Constructor of Menu
  * @param viewport
  * @param options
  * @constructor menu
