@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
+	concatCss = require('gulp-concat-css'),
 	jshint = require('gulp-jshint'),
 	minifycss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
@@ -12,10 +13,11 @@ var cssfiles = 'css/*.css',
 
 imgfiles = 'img/*';
 
-gulp.task('lalolla', function() {
-	gulp.src('css/wtal.css')
+gulp.task('css', function() {
+	gulp.src('css/*')
+		.pipe(concatCss("lalolla.css"))
 		.pipe(gulp.dest('dist/css'));
-	gulp.src('dist/css/wtal.css')
+	gulp.src('dist/css/lalolla.css')
 		.pipe(minifycss())
 		.pipe(rename({
 			extname: '.min.css'

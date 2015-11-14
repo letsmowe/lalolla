@@ -158,14 +158,6 @@
 
 }
 
-@media (min-width: 36em) {
-
-	.MainNav--sidebar {
-		width: 28em;
-	}
-
-}
-
 @media (min-height: 24em) {
 
 	.MainNav--sidebar .MainNav-menu-item--brands,
