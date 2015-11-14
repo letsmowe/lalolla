@@ -215,8 +215,6 @@ Installery.prototype.buildMediaItem = function(media) {
 	var element = document.createElement('article');
 	element.classList.add('InstalleryMedia');
 
-	console.log(media);
-
 	if (media.brand)
 		element.classList.add('InstalleryMedia--brand');
 	else element.classList.add('InstalleryMedia--instagram');

@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/icon.css"/>
 <link rel="stylesheet" href="css/nav.css"/>
 <link rel="stylesheet" href="css/header.css"/>
+<link rel="stylesheet" href="css/about.css"/>
 <link rel="stylesheet" href="css/installery.css"/>
 <link rel="stylesheet" href="css/footer.css"/>
 <link rel="stylesheet" href="css/contact.css"/>
@@ -19,7 +20,7 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<nav id="main-nav" class="MainNav MainNav--sidebar">
+<nav id="main-nav" class="MainNav MainNav--sidebar grey-50">
 
 	<a href="#" id="main-nav-controller" class="MainNav-controller font-cyan-a700 h-cyan-a700 hfont-white">
 
@@ -49,7 +50,7 @@
 
 				<span class="MainNav-menu-item-text">
 
-					<span>Marcas</span>
+					<span>Grifes</span>
 
 				</span>
 
@@ -71,7 +72,151 @@
 
 	<section id="main-nav-body" class="MainNav-body cyan-900">
 
-		<article class="MainNav-item cyan-800"></article>
+		<article class="MainNav-item grey-50">
+
+			<div class="About flex flex-column">
+
+				<header class="AboutHeader flex justify-center align-end bg-cover"></header>
+
+				<section class="AboutAttendance flex flex-wrap justify-around font-brown-800">
+
+					<div class="AboutAttendance-day flex flex-column align-center justify-center cyan-100 h-cyan-200 border-cyan-100 hborder-cyan-500">
+
+						<span class="AboutAttendance-day-title">Seg. a Sex.</span>
+
+						<div class="AboutAttendance-hours flex flex-column align-center">
+
+							<span class="AboutAttendance-hour">9:00 às 18:00</span>
+
+						</div>
+
+					</div>
+
+					<div class="AboutAttendance-day flex flex-column align-center justify-center cyan-100 h-cyan-200 border-cyan-100 hborder-cyan-500">
+
+						<span class="AboutAttendance-day-title">Sábado</span>
+
+						<div class="AboutAttendance-hours flex flex-column align-center">
+
+							<span class="AboutAttendance-hour">8:00 às 15:00</span>
+
+						</div>
+
+					</div>
+
+				</section>
+
+				<div class="AboutLocal font-brown-800">
+
+					<div class="AboutLocal-address flex justify-center">
+
+						<header class="AboutLocal-address-header flex align-center">
+							<span class="icon icon-location"></span>
+						</header>
+
+						<div class="AboutLocal-address-body flex flex-column">
+							<span class="street">Rua Floriano Peixoto, 438</span>
+							<span class="city">Assis - SP</span>
+							<span class="zip">19800-001</span>
+						</div>
+
+					</div>
+
+					<div id="map" class="AboutLocal-map"></div>
+
+					<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+					<script TYPE="text/javascript">
+
+						var map;
+
+						function initMap() {
+							map = new google.maps.Map(document.getElementById('map'), {
+								center: {lat: -22.66242, lng: -50.41591},
+								zoom: 17,
+								scrollwheel: false,
+							});
+						}
+
+						initMap();
+
+					</script>
+
+				</div>
+
+				<section class="AboutSocial font-brown-800">
+
+					<div class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-phone"></span>
+						</header>
+
+						<div class="AboutSocialItem-body">
+							<span class="value">18 3323 5941</span>
+						</div>
+
+					</div>
+
+					<div class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-whatsapp"></span>
+						</header>
+
+						<div class="AboutSocialItem-body">
+							<span class="value">18 9 9923 2220</span>
+						</div>
+
+					</div>
+
+					<a href="http://www.instagram.com/lalollaassis" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-instagram"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">instagram.com/lalollaassis</span>
+						</span>
+
+					</a>
+
+					<a href="http://www.facebook.com" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-facebook"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">facebook.com/lalolla</span>
+						</span>
+
+					</a>
+
+					<a href="http://twitter.com" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-twitter"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">twitter.com/lalolla</span>
+						</span>
+
+					</a>
+
+				</section>
+
+				<footer class="AboutFooter font-brown-800 flex justify-center">
+
+					<span class="AboutFooter-text">Lalolla © 2015</span>
+
+				</footer>
+
+			</div>
+
+		</article>
 
 		<article class="MainNav-item cyan-700"></article>
 

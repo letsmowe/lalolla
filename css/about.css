@@ -1,0 +1,120 @@
+/* Header */
+
+.AboutHeader {
+	background-image: url('../img/lalolla2.jpg');
+	background-position: center;
+	height: 16em;
+}
+
+/* Attendance */
+
+.AboutAttendance {
+	padding: .675em 0;
+	width: 100%;
+}
+
+.AboutAttendance-day {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+	cursor: default;
+	margin: .5em 0;
+	padding: .75em;
+}
+
+.AboutAttendance-day-title {
+	font-weight: 700;
+}
+
+@media (min-width: 24em) {
+
+	.AboutHeader {
+		height: 21em;
+	}
+
+	.AboutAttendance {
+		padding: 1.125em 0;
+	}
+
+	.AboutAttendance-day {
+		padding: 1em;
+	}
+
+}
+
+/* Local */
+
+.AboutLocal-address {
+	padding: 1em 0;
+}
+
+.AboutLocal-address-header {
+	width: 3em;
+}
+
+.AboutLocal-address-header .icon {
+	font-size: 1.5em;
+}
+
+/* Social */
+
+.AboutSocial {
+	padding: 0 0 1em 1em;
+}
+
+.AboutSocialItem {
+	padding: .5em 0 .5em;
+}
+
+.AboutSocialItem-header {
+	border-radius: 50%;
+	border-left: solid 1px #00bcd4;
+	border-bottom: solid 1px #00bcd4;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	height: 2.25em;
+	margin: 0 .75em 0 0;
+	width: 2.25em;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.AboutSocialItem:hover .AboutSocialItem-header {
+	background-color: #b2ebf2;
+}
+
+.AboutSocialItem-header .icon {
+	font-size: 1.125em;
+}
+
+a.AboutSocialItem .AboutSocialItem-body {
+	color: #00b8d4;
+}
+
+a.AboutSocialItem:hover .AboutSocialItem-body {
+	text-decoration: underline;
+}
+
+@media (min-width: 36em) {
+
+	.AboutSocial {
+		padding: 1em 0 2.25em 3.5em;
+	}
+
+}
+
+/* Footer */
+
+.AboutFooter {
+	padding: .5em 0 1.5em;
+}

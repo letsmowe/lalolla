@@ -43,8 +43,6 @@ function Nav() {
 
 		self.toggle(this, true);
 
-		//self.header.viewport.style.left = 0;
-
 	};
 
 	this.header.itemClickCtrl = function() {
@@ -57,83 +55,13 @@ function Nav() {
 
 Nav.prototype.toggleControllerIcon = function() {
 
-	if (self.active) {
-		self.controller.icon.classList.remove('icon-menu');
-		self.controller.icon.classList.add('icon-cancel');
-	} else {
-		self.controller.icon.classList.remove('icon-menu');
-		self.controller.icon.classList.add('icon-cancel');
-	}
-
-};
-
-Nav.prototype.resizeDesktop = function() {
-
-	var self = this;
-
-	this.header.viewport.style.right = 100 + '%';
-	this.header.viewport.style.left = 'auto';
-
-	this.body.viewport.style.left = 0;
-
 	if (this.active) {
-		this.controller.viewport.style.display = 'flex';
-		this.controller.viewport.style.right = '100%';
-		this.controller.viewport.style.left = 'auto';
+		this.controller.icon.classList.remove('icon-menu');
+		this.controller.icon.classList.add('icon-cancel');
 	} else {
-		this.controller.viewport.style.display = 'none';
+		this.controller.icon.classList.remove('icon-cancel');
+		this.controller.icon.classList.add('icon-menu');
 	}
-
-	setTimeout(function() {
-		self.body.viewport.style.width = self.viewport.offsetWidth + 'px';
-	}, 300);
-
-};
-
-Nav.prototype.resizeMobile = function() {
-
-	var self = this;
-
-	this.controller.viewport.style.display = 'flex';
-
-	this.header.viewport.style.right = 'auto';
-	this.header.viewport.style.left = 0;
-
-	if (this.active) {
-		this.controller.viewport.style.right = 'auto';
-		this.controller.viewport.style.left = 0;
-	} else {
-		this.controller.viewport.style.left = 'auto';
-		this.controller.viewport.style.right = 100 + '%';
-		this.body.viewport.style.left = 0;
-	}
-
-	this.body.viewport.style.left = this.header.viewport.offsetWidth + 'px';
-
-	setTimeout(function() {
-		self.body.viewport.style.width = ( self.viewport.offsetWidth - self.header.viewport.offsetWidth ) + 'px';
-	}, 300);
-
-};
-
-Nav.prototype.resize = function() {
-
-	var self = this;
-
-	this.viewport.classList.remove('is-animating');
-
-	this.translateViewport();
-
-	setTimeout(function() {
-		if (window.innerWidth < 420)
-			self.resizeMobile();
-		else
-			self.resizeDesktop();
-	}, 300);
-
-	setTimeout(function() {
-		self.viewport.classList.add('is-animating');
-	}, 300);
 
 };
 
@@ -179,11 +107,10 @@ Nav.prototype.translateViewport = function() {
 
 	var translate;
 
-	if (this.active) {
+	if (this.active)
 		translate = - this.viewport.offsetWidth + 'px';
-	} else {
+	else
 		translate = 0;
-	}
 
 	this.viewport.style.webkitTransform = 'translateX(' + translate + ')';
 	this.viewport.style.msTransform = 'translateX(' + translate + ')';
@@ -195,10 +122,76 @@ Nav.prototype.translate = function(event, translateItems) {
 
 	var self = this;
 
+	self.translateViewport();
+	self.translateItems( translateItems ? event.brother : false );
+
+};
+
+Nav.prototype.resizeDesktop = function() {
+
+	var self = this;
+
+	this.header.viewport.style.right = 100 + '%';
+	this.header.viewport.style.left = 'auto';
+
+	this.body.viewport.style.left = 0;
+
+	if (this.active) {
+		this.controller.viewport.style.display = 'flex';
+		this.controller.viewport.style.right = '100%';
+		this.controller.viewport.style.left = 'auto';
+	} else {
+		this.controller.viewport.style.display = 'none';
+	}
+
 	setTimeout(function() {
+		self.body.viewport.style.width = self.viewport.offsetWidth + 'px';
 		self.translateViewport();
-		self.translateItems( translateItems ? event.brother : false );
-	}, 100);
+		self.viewport.classList.add('is-animating');
+	}, 300);
+
+};
+
+Nav.prototype.resizeMobile = function() {
+
+	var self = this;
+
+	this.controller.viewport.style.display = 'flex';
+
+	this.header.viewport.style.right = 'auto';
+	this.header.viewport.style.left = 0;
+
+	if (this.active) {
+		this.controller.viewport.style.right = 'auto';
+		this.controller.viewport.style.left = 0;
+	} else {
+		this.controller.viewport.style.left = 'auto';
+		this.controller.viewport.style.right = 100 + '%';
+		this.body.viewport.style.left = 0;
+	}
+
+	this.body.viewport.style.left = this.header.viewport.offsetWidth + 'px';
+
+	setTimeout(function() {
+		self.body.viewport.style.width = ( self.viewport.offsetWidth - self.header.viewport.offsetWidth ) + 'px';
+		self.translateViewport();
+		self.viewport.classList.add('is-animating');
+	}, 300);
+
+};
+
+Nav.prototype.resize = function() {
+
+	var self = this;
+
+	this.viewport.classList.remove('is-animating');
+
+	setTimeout(function() {
+		if (window.innerWidth < 420)
+			self.resizeMobile();
+		else
+			self.resizeDesktop();
+	}, 300);
 
 };
 
@@ -206,12 +199,14 @@ Nav.prototype.toggle = function(event, controller) {
 
 	if (!this.active)
 		this.active = !this.active;
-	else if ( (controller) || (event.brother.classList.contains('is-active')) )
+	else if ( (controller) )
 		this.active = !this.active;
+
+	this.translate(event, !controller);
 
 	this.resize();
 
-	this.translate(event, !controller);
+	this.toggleControllerIcon();
 
 };
 
