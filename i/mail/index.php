@@ -10,21 +10,21 @@ class Response {
 	public $message;
 	public $name;
 
-	private $mail;
+	private $mailer;
 
 	/**
 	 * Response constructor.
 	 * @param $get {array}
-	 * @param $mail {PHPMailer}
+	 * @param $mailer {PHPMailer}
 	 * @internal param bool $sent
 	 */
-	public function __construct($get, $mail)
+	public function __construct($get, $mailer)
 	{
-		$this->from = $get['from'];
+		$this->mail = $get['from'];
 		$this->message = $get['message'];
 		$this->name = $get['name'];
 
-		$this->mail = $mail;
+		$this->mailer = $mailer;
 	}
 
 	/**
@@ -35,6 +35,9 @@ class Response {
 		$this->sent = $sent;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function toJSON()
 	{
 		return json_encode($this);
@@ -44,34 +47,45 @@ class Response {
 
 require '../PHPMailer/PHPMailerAutoload.php';
 
-$mail = new PHPMailer;
+// create new instance
+$mailer = new PHPMailer;
 
-$mail->CharSet = 'UTF-8';
+// set charset
+$mailer->CharSet = 'UTF-8';
 
-$mail->isSMTP();
-$mail->Host = 'box729.bluehost.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'mailman@letsmowe.com';
-$mail->Password = '64op3gZxONGO';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+//$mail->SMTPDebug = 3;
 
-$mail->setFrom('mailman@letsmowe.com', 'La Lolla - MailMan');
-$mail->addAddress($_GET['from'], $_GET['name']);
+// set header
+$mailer->isSMTP();
+$mailer->Host = 'box729.bluehost.com';
+$mailer->SMTPAuth = true;
+$mailer->Username = 'mailman@letsmowe.com';
+$mailer->Password = '64op3gZxONGO';
+$mailer->SMTPSecure = 'ssl';
+$mailer->Port = 465;
 
-$mail->isHTML(true);
-$mail->Subject = 'Requisição de contato - La Lolla';
-$mail->Body = $_GET['message'];
-$mail->AltBody = $_GET['message'];
+// set from, to and carbon copy (hidden)
+$mailer->setFrom('mailman@letsmowe.com', 'La Lolla - MailMan');
+$mailer->addAddress($_GET['mail'], $_GET['name']);
+$mailer->addBCC('joseeduardobarros@gmail.com', 'Eduardo Barros');
 
-$response = new Response($_GET, $mail);
+// set type, subject and body
+$mailer->isHTML(true);
+$mailer->Subject = 'Requisição de contato - La Lolla';
+$mailer->Body = $_GET['message'];
+$mailer->AltBody = $_GET['message'];
 
-if(!$mail->send()) {
+// create new instance of response
+$response = new Response($_GET, $mailer);
+
+// send
+if(!$mailer->send()) {
 	$response->setSent(false);
 } else {
 	$response->setSent(true);
 }
 
+// print response JSON
 print_r($response->toJSON());
 
 ?>
