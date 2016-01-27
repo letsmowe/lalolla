@@ -41,13 +41,13 @@ function Nav() {
 
 	this.controllerClickCtrl = function() {
 
-		self.toggle(this, true);
+		self.toggleButton(this, true);
 
 	};
 
 	this.header.itemClickCtrl = function() {
 
-		self.toggle(this, false);
+		self.toggleButton(this, false);
 
 	};
 
@@ -195,7 +195,7 @@ Nav.prototype.resize = function() {
 
 };
 
-Nav.prototype.toggle = function(event, controller) {
+Nav.prototype.toggleButton = function(event, controller) {
 
 	if (!this.active)
 		this.active = !this.active;

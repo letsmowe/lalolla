@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/installery.css"/>
 <link rel="stylesheet" href="css/footer.css"/>
 <link rel="stylesheet" href="css/menu.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
@@ -20,7 +21,7 @@
 
 <main id="main" style="height: 100vh">
 
-	<div id="menu" class="Menu"></div>
+	<nav id="menu" class="Menu"></nav>
 
 </main>
 
@@ -34,7 +35,8 @@
 
 	var menu = new Menu(document.getElementById('menu'), {
 		name: 'cagories',
-		title: 'Categorias',
+		title: false,
+		showItems: 2,
 		list: [
 			{
 				name: 'categoria-01',
