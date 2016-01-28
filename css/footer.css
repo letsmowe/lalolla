@@ -21,6 +21,10 @@
 
 /* Footer Body Text */
 
+.MainFooter-bodyText {
+	text-align: center;
+}
+
 .MainFooter-bodyText p {
 	text-align: center;
 	font-weight: 400;
@@ -62,4 +66,18 @@
 
 .MainFooter-logo-svg--grey {
 	fill: #424242;
+}
+
+.MainFooter-lock-sign {
+	display: none;
+}
+
+@media (min-width: 48em) {
+
+	.MainFooter-lock-sign {
+		display: block;
+		padding: 2.25em 0 0;
+		text-align: center;
+	}
+
 }

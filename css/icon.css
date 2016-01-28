@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'lalolla';
-	src: url('../font/lalolla.eot?74410047');
-	src: url('../font/lalolla.eot?74410047#iefix') format('embedded-opentype'),
-		 url('../font/lalolla.woff?74410047') format('woff'),
-		 url('../font/lalolla.ttf?74410047') format('truetype'),
-		 url('../font/lalolla.svg?74410047#lalolla') format('svg');
+	src: url('../font/lalolla.eot?60326477');
+	src: url('../font/lalolla.eot?60326477#iefix') format('embedded-opentype'),
+		 url('../font/lalolla.woff?60326477') format('woff'),
+		 url('../font/lalolla.ttf?60326477') format('truetype'),
+		 url('../font/lalolla.svg?60326477#lalolla') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'lalolla';
-    src: url('../font/lalolla.svg?74410047#lalolla') format('svg');
+    src: url('../font/lalolla.svg?60326477#lalolla') format('svg');
   }
 }
 */
@@ -72,3 +72,4 @@
 .icon-mail-alt:before { content: '\e80f'; } /* '' */
 .icon-arrows-cw:before { content: '\e810'; } /* '' */
 .icon-instagram:before { content: '\e811'; } /* '' */
+.icon-lock:before { content: '\e812'; } /* '' */

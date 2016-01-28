@@ -28,7 +28,7 @@
 
 <nav id="main-nav" class="MainNav MainNav--sidebar grey-50">
 
-	<a href="#" id="main-nav-controller" class="MainNav-controller font-cyan-a700 h-cyan-a700 hfont-white">
+	<a id="main-nav-controller" class="MainNav-controller font-cyan-a700 h-cyan-a700 hfont-white">
 
 		<span class="MainNav-controller-text">
 
@@ -417,11 +417,13 @@
 
 </div>
 
-<section id="installery" class="Installery">
+<section id="installery" class="Installery flex flex-column">
 
-	<nav id="installery-nav" class="GalleryNav"></nav>
+	<nav id="installery-menu" class="Menu Menu--installery GalleryNav"></nav>
 
 	<div id="installery-gallery" class="InstalleryGallery flex flex-wrap justify-center"></div>
+
+	<button onclick="installery.loadMore();">Carregar mais</button>
 
 </section>
 
@@ -543,6 +545,8 @@
 
 		<p>Tendencia em moda</p>
 
+		<a href="http://lalolla.com.br/webmail" class="MainFooter-lock-sign"><span class="icon-lock"></span></a>
+
 	</div>
 
 </footer>
@@ -558,6 +562,7 @@
 <script src="js/menu.js"></script>
 <script src="dist/js/jquery-2.1.4.min.js"></script>
 <script src="js/installery.js"></script>
+<script src="js/menu.js"></script>
 <script src="js/contact.js"></script>
 <script>
 
@@ -606,6 +611,56 @@
 	]);
 
 	installery.init(url);
+
+	var foo = function() {
+//		console.log(this);
+		document.getElementById('main').classList.toggle('light-blue-100');
+	};
+
+	var menu = new Menu(document.getElementById('installery-menu'), {
+		name: 'cagories',
+		title: false,
+		showItems: 3,
+		list: [
+			{
+				name: 'categoria-01',
+				title: 'Saias',
+				onClick: foo
+			},
+			{
+				name: 'categoria-02',
+				title: 'Vestidos',
+				onClick: foo
+			},
+			{
+				name: 'categoria-03',
+				title: 'Blusas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-04',
+				title: 'Camisas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-05',
+				title: 'Bolsas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-06',
+				title: 'Sapatos',
+				onClick: foo
+			},
+			{
+				name: 'categoria-07',
+				title: 'Batas',
+				onClick: foo
+			}
+		]
+	});
+
+	menu.init();
 
 	var contact = new Contact(document.getElementById('contact-form'), {
 		url: 'i/mail/'

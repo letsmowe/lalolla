@@ -2,6 +2,13 @@
 
 .Menu { }
 
+.Menu--installery {
+	margin: 0 auto;
+	padding: 0 1em;
+	width: 100%;
+	max-width: 72em;
+}
+
 .Menu-title,
 .Menu-toggle-button {
 	cursor: pointer;
@@ -53,10 +60,12 @@
 
 .Menu-hidden-list {
 	display: block;
-	position: fixed;
+	position: absolute;
 	opacity: 0;
+	left: 0;
+	top: 0;
 	pointer-events: none;
-	margin: 1em 0 0;
+	margin: .675em 0 0;
 	z-index: 1000;
 }
 

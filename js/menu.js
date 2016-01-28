@@ -40,7 +40,7 @@ var Menu = (function() {
 
 		this.itemClickCtrl = function() {
 
-			self.toggle();
+			self.toggle(this);
 
 		};
 
@@ -84,31 +84,56 @@ var Menu = (function() {
 	};
 
 	/**
-	 * Toggle the menu, it add the class 'is-active' to menu and active the backdrop
+	 * Show the menu, it add the class 'is-active' to menu and active the backdrop
 	 */
-	Menu.prototype.toggle = function() {
+	Menu.prototype.show = function () {
+
+		this.viewport.classList.add('is-active');
+		this.activeBackdrop();
+
+		this.active = !this.active;    // true
+
+	};
+
+	/**
+	 * Hide the menu, it remove the class 'is-active' to menu and destroy the backdrop
+	 */
+	Menu.prototype.hide = function() {
+
+		this.viewport.classList.remove('is-active');
+		this.destroyBackdrop();
+
+		this.active = !this.active;    // false
+
+	};
+
+	/**
+	 * Toggle the menu
+	 * @param item {object}
+	 */
+	Menu.prototype.toggle = function(item) {
 
 		this.listUpdatePosition();
 
 		if (!this.active) {
 
-			this.viewport.classList.add('is-active');
-			this.activeBackdrop();
+			if (item) {
 
-			this.active = !this.active;    // true
+				if (!item.isFixed) this.show();
+
+			} else {
+
+				this.show();
+
+			}
 
 		} else {
 
-			this.viewport.classList.remove('is-active');
-			this.destroyBackdrop();
-
-			this.active = !this.active;    // false
+			this.hide();
 
 		}
 
 	};
-
-	/* Title */
 
 	/**
 	 * Build the title of menu and to call the toggleButton function
@@ -151,6 +176,8 @@ var Menu = (function() {
 		left = this.toggleButton.viewport.offsetLeft;
 		top = this.toggleButton.viewport.offsetTop + this.toggleButton.viewport.offsetHeight;
 
+		console.log(top);
+
 		this.list.hiddenList.style.top = top + 'px';
 		this.list.hiddenList.style.left = left + 'px';
 
@@ -178,10 +205,11 @@ var Menu = (function() {
 	/**
 	 * Build a list item and add the click and touch event listeners
 	 * for toggleButton and for the custom call function
-	 * @param data
+	 * @param data {object}
+	 * @param isFixed {boolean}
 	 * @return {Element}
 	 */
-	Menu.prototype.buildListItem = function(data) {
+	Menu.prototype.buildListItem = function(data, isFixed) {
 
 		var element = document.createElement('li');
 		element.classList.add('Menu-item');
@@ -194,6 +222,8 @@ var Menu = (function() {
 
 		element.addEventListener('click', this.itemClickCtrl);
 		element.addEventListener('click', data.onClick);
+
+		element.isFixed = !!isFixed;
 
 		return element;
 
@@ -211,7 +241,7 @@ var Menu = (function() {
 		list.classList.add('Menu-list');
 
 		for (i = 0; i < ( this.showItems || 0 ); i++)
-			list.appendChild(this.buildListItem(this.list.data[i]));
+			list.appendChild(this.buildListItem(this.list.data[i], true));
 
 		this.toggleButton.viewport = this.buildToggleButton();
 		list.appendChild(this.toggleButton.viewport);
