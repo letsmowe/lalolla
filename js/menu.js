@@ -176,8 +176,6 @@ var Menu = (function() {
 		left = this.toggleButton.viewport.offsetLeft;
 		top = this.toggleButton.viewport.offsetTop + this.toggleButton.viewport.offsetHeight;
 
-		console.log(top);
-
 		this.list.hiddenList.style.top = top + 'px';
 		this.list.hiddenList.style.left = left + 'px';
 

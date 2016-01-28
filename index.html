@@ -423,7 +423,7 @@
 
 	<div id="installery-gallery" class="InstalleryGallery flex flex-wrap justify-center"></div>
 
-	<button onclick="installery.loadMore();">Carregar mais</button>
+	<button onclick="installery.loadMore();">+</button>
 
 </section>
 
@@ -622,6 +622,13 @@
 		title: false,
 		showItems: 3,
 		list: [
+			{
+				name: 'camisetas',
+				title: 'Camisetas',
+				onClick: function() {
+					installery.reload();
+				}
+			},
 			{
 				name: 'categoria-01',
 				title: 'Saias',

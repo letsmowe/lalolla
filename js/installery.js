@@ -107,6 +107,16 @@ var Installery = (function() {
 
 	};
 
+	Installery.prototype.doTagQuery = function(media) {
+
+		for (var i = this.view.options.query.length; i--; )
+			if (this.hasTag(media, this.view.options.query[i]))
+				return true;
+
+		return false;
+
+	};
+
 	/**
 	 * Returns 'n' random media from a brand array (this.brand.data)
 	 * @param n {number}
@@ -133,12 +143,14 @@ var Installery = (function() {
 	 */
 	Installery.prototype.getInstagramMedia = function(n) {
 
-		var arr, max, isOver;
+		var arr, max, isOver, media, count;
 
 		arr = [];
 		max = this.view.lastInstagram_id + n;
 
 		isOver = false;
+
+		count = 0;
 
 		//
 		// Find the first item and put this at top of arrays
@@ -153,13 +165,34 @@ var Installery = (function() {
 		//		}
 		//
 
-		while ( this.view.lastInstagram_id < max && !isOver ) // default
-			if (this.instagram.data[this.view.lastInstagram_id]) {
+		console.log(this.view.lastInstagram_id);
+		console.log('count: ' + count);
 
-				arr.push(this.instagram.data[this.view.lastInstagram_id]);
-				this.view.lastInstagram_id++;
+		while ( this.view.lastInstagram_id < max && !isOver ) // default
+			if (media = this.instagram.data[this.view.lastInstagram_id]) {
+
+				if (this.view.options.query.length) {
+
+					if (this.doTagQuery(media)) {
+						count++;
+						arr.push(media);
+					}
+
+					this.view.lastInstagram_id++;
+
+				} else {
+
+					arr.push(media);
+					this.view.lastInstagram_id++;
+
+				}
 
 			} else isOver = !isOver;
+
+		console.log(this.view.lastInstagram_id);
+		console.log('count: ' + count);
+
+		console.log('-----------------------------------------------------');
 
 		return arr;
 
@@ -397,6 +430,8 @@ var Installery = (function() {
 		this.view.options.query = [
 			'camisetas'
 		];
+
+		this.loadView();
 
 	};
 
