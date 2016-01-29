@@ -29,8 +29,12 @@ gulp.task('js', function() {
 	gulp.src(jsfiles)
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		.pipe(gulp.dest('dist/js'));
-	gulp.src(['dist/js/dist.js'])
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest('dist/js'))
+		.pipe(concat('dist.js'))
+		.pipe(gulp.dest('dist/js'))
 		.pipe(rename({
 			extname: '.min.js'
 		}))

@@ -96,7 +96,7 @@ Contact.prototype.loadFieldsData = function(initSend) {
 
 Contact.prototype.validateTextField = function(element) {
 
-	return element ? element.value != '' : false;
+	return element ? element.value !== '' : false;
 
 };
 
@@ -123,7 +123,7 @@ Contact.prototype.addListeners = function() {
 		type: 'click',
 		crossType: 'onclick',
 		listener: this.clickCtrl
-	})
+	});
 
 };
 
