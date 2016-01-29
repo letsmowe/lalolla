@@ -3,7 +3,7 @@
 .Installery {
 	width: 100%;
 	max-width: 96em;
-	margin: 4.5em auto;
+	margin: 1em auto 4.5em;
 	justify-content: center;
 }
 
@@ -36,10 +36,40 @@
 	background-size: 60%;
 }
 
+.InstalleryLoadButton {
+	margin: 0 auto;
+	max-width: 32em;
+	width: 100%;
+	padding: 0 1.125em;
+}
+
+.InstalleryLoadButton-btn {
+	-webkit-transition: background .3s ease;
+	-moz-transition: background .3s ease;
+	-ms-transition: background .3s ease;
+	-o-transition: background .3s ease;
+	transition: background .3s ease;
+	border: none;
+	width: 100%;
+	height: 4.5em;
+}
+
+.InstalleryLoadButton-btn span {
+	font-size: 1.5em;
+}
+
 @media (max-width: 36em) {
 
 	.InstalleryMedia {
 		height: 20em;
+	}
+
+}
+
+@media (min-width: 48em) {
+
+	.Installery {
+		padding-top: 1.5em;
 	}
 
 }

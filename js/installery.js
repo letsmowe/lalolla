@@ -26,7 +26,7 @@ var Installery = (function() {
 
 		this.view.options = {};
 		this.view.options.hashtag = false;
-		this.view.options.instagramPerView = 5;
+		this.view.options.instagramPerView = 6;
 		this.view.options.brandPerView = 2;
 
 		this.view.options.query = [];
@@ -39,6 +39,8 @@ var Installery = (function() {
 		this.brand = {};
 		this.brand.data = [];
 		this.brand.lastBrands_id = 0;
+
+		this.autoload = false;
 
 		this.loadLast = 0;
 
@@ -150,8 +152,6 @@ var Installery = (function() {
 
 		isOver = false;
 
-		count = 0;
-
 		//
 		// Find the first item and put this at top of arrays
 		//
@@ -165,18 +165,13 @@ var Installery = (function() {
 		//		}
 		//
 
-		console.log(this.view.lastInstagram_id);
-		console.log('count: ' + count);
-
 		while ( this.view.lastInstagram_id < max && !isOver ) // default
 			if (media = this.instagram.data[this.view.lastInstagram_id]) {
 
 				if (this.view.options.query.length) {
 
-					if (this.doTagQuery(media)) {
-						count++;
+					if (this.doTagQuery(media))
 						arr.push(media);
-					}
 
 					this.view.lastInstagram_id++;
 
@@ -188,9 +183,6 @@ var Installery = (function() {
 				}
 
 			} else isOver = !isOver;
-
-		console.log(this.view.lastInstagram_id);
-		console.log('count: ' + count);
 
 		console.log('-----------------------------------------------------');
 
@@ -227,6 +219,12 @@ var Installery = (function() {
 				arr.push(instagram[instagramCount++]);
 
 		}
+
+		/*
+		*
+		* TROUBLE HERE! TODO
+		*
+		* */
 
 		return arr;
 
@@ -269,16 +267,22 @@ var Installery = (function() {
 
 	Installery.prototype.buildView = function(data) {
 
+		var arr = [];
+
 		for (var i = 0; i < data.length; i++) {
 
-			if (!data[i].viewport)
-				data[i].viewport = this.buildMediaItem(data[i]);
+			if (data[i]) {
 
-			this.view.data.push(data[i]);
+				if (!data[i].viewport)
+					data[i].viewport = this.buildMediaItem(data[i]);
+
+				arr.push(data[i]);
+
+			}
 
 		}
 
-		return this.view.data;
+		return arr;
 
 	};
 
@@ -291,8 +295,9 @@ var Installery = (function() {
 
 		var built = this.buildView(data);
 
-		for (var i = 0; i < built.length; i++)
-			this.viewport.appendChild(built[i].viewport);
+		for (var i = 0; i < built.length; i++) {
+			this.viewport.appendChild(built[i].viewport.cloneNode(true));
+		}
 
 	};
 
@@ -316,10 +321,10 @@ var Installery = (function() {
 	Installery.prototype.loadBrandData = function(data) {
 
 		for (var i = 0; i < data.length; i++) {
-			data[i].brands_id = this.brand.brands_id;
+			data[i].brands_id = this.brand.lastBrands_id;
 			this.brand.data.push(data[i]);
 			this.brand.lastBrands_id = data[i].brands_id;
-			this.brand.brands_id++;
+			this.brand.lastBrands_id++;
 		}
 
 	};
@@ -357,6 +362,11 @@ var Installery = (function() {
 
 		if (!this.loadLast++) // just init media at first time
 			this.initMedia();
+
+		if (this.autoload) {
+			this.autoload = false;
+			this.initMedia();
+		}
 
 	};
 
@@ -404,11 +414,14 @@ var Installery = (function() {
 	 */
 	Installery.prototype.loadMore = function() {
 
+		console.log('kkk');
+
 		if (!this.instagram.loadAll)
 			this.instagram.loadAll = true;
 
-		if (this.instagram.pagination.next_url)
+		if (this.instagram.pagination.next_url) {
 			this.loadInstagramData(this.instagram.pagination.next_url, this);
+		}
 
 		this.loadView();
 
@@ -431,6 +444,8 @@ var Installery = (function() {
 			'camisetas'
 		];
 
+		this.autoload = true;
+
 		this.loadView();
 
 	};
@@ -440,8 +455,6 @@ var Installery = (function() {
 	 * @param url
 	 */
 	Installery.prototype.init = function(url) {
-
-		this.viewport.classList.add('Installery');
 
 		this.firstBiteInstagramData(url);
 

@@ -120,6 +120,100 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
   padding: .5em 0 1.5em;
 }
 
+
+.BrandItem {
+  padding: .75em 1em .5em;
+}
+
+.BrandItemInner {
+  background-color: #ffffff;
+  padding: 1em;
+  width: 100%;
+}
+
+.BrandItem:hover .BrandItem-img {
+  -webkit-transform: scale(1.36);
+  -moz-transform: scale(1.36);
+  -ms-transform: scale(1.36);
+  -o-transform: scale(1.36);
+  transform: scale(1.36);
+  -webkit-transition: transform .5s;
+  -moz-transition: transform .5s;
+  -ms-transition: transform .5s;
+  -o-transition: transform .5s;
+  transition: transform .5s;
+}
+
+.BrandItem-img {
+  display: block;
+  background-image: url("../img/Regua_V_3_1.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.BrandItem--audiovisual .BrandItem-img {
+  background-position: -51px;
+  width: 160px;
+}
+
+.BrandItem--besni .BrandItem-img {
+  background-position: -260px;
+  width: 143px;
+}
+
+.BrandItem--pura-essencia .BrandItem-img {
+  background-position: -452px;
+  width: 87px;
+}
+
+.BrandItem--lady-rock .BrandItem-img {
+  background-position: -587px;
+  width: 201px;
+}
+
+.BrandItem--egoiste .BrandItem-img {
+  background-position: -838px;
+  width: 161px;
+}
+
+.BrandItem--she-likes .BrandItem-img {
+  background-position: -1048px;
+  width: 62px;
+}
+
+.BrandItem--mamo .BrandItem-img {
+  background-position: -1159px;
+  width: 115px;
+}
+
+.BrandItem--cheroy .BrandItem-img {
+  background-position: -1323px;
+  width: 161px;
+}
+
+.BrandItem--yoyo .BrandItem-img {
+  background-position: -1534px;
+  width: 48px;
+}
+
+.BrandItem--nuxx .BrandItem-img {
+  background-position: -1630px;
+  width: 187px;
+}
+
+.BrandItem--madah .BrandItem-img {
+  background-position: -1865px;
+  width: 163px;
+}
+
+.BrandItem--esoterica .BrandItem-img {
+  background-position: -2075px;
+  width: 163px;
+}
 /* Contact Form */
 
 .ContactForm {
@@ -599,11 +693,11 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
 }
 @font-face {
   font-family: 'lalolla';
-  src: url("../font/lalolla.eot?60326477");
-  src: url("../font/lalolla.eot?60326477#iefix") format('embedded-opentype'),
-		 url("../font/lalolla.woff?60326477") format('woff'),
-		 url("../font/lalolla.ttf?60326477") format('truetype'),
-		 url("../font/lalolla.svg?60326477#lalolla") format('svg');
+  src: url("../font/lalolla.eot?72278186");
+  src: url("../font/lalolla.eot?72278186#iefix") format('embedded-opentype'),
+		 url("../font/lalolla.woff?72278186") format('woff'),
+		 url("../font/lalolla.ttf?72278186") format('truetype'),
+		 url("../font/lalolla.svg?72278186#lalolla") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -616,7 +710,7 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'lalolla';
-    src: url('../font/lalolla.svg?60326477#lalolla') format('svg');
+    src: url('../font/lalolla.svg?72278186#lalolla') format('svg');
   }
 }
 */
@@ -763,12 +857,18 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
 }
 
 /* '' */
+
+.icon-plus:before {
+  content: '\e813';
+}
+
+/* '' */
 /* Installery */
 
 .Installery {
   width: 100%;
   max-width: 96em;
-  margin: 4.5em auto;
+  margin: 1em auto 4.5em;
   justify-content: center;
 }
 
@@ -801,9 +901,37 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
   background-size: 60%;
 }
 
+.InstalleryLoadButton {
+  margin: 0 auto;
+  max-width: 32em;
+  width: 100%;
+  padding: 0 1.125em;
+}
+
+.InstalleryLoadButton-btn {
+  -webkit-transition: background .3s ease;
+  -moz-transition: background .3s ease;
+  -ms-transition: background .3s ease;
+  -o-transition: background .3s ease;
+  transition: background .3s ease;
+  border: none;
+  width: 100%;
+  height: 4.5em;
+}
+
+.InstalleryLoadButton-btn span {
+  font-size: 1.5em;
+}
+
 @media (max-width: 36em) {
   .InstalleryMedia {
     height: 20em;
+  }
+}
+
+@media (min-width: 48em) {
+  .Installery {
+    padding-top: 1.5em;
   }
 }
 /* Menu */
@@ -811,7 +939,7 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
 
 
 .Menu--installery {
-  margin: 0 auto;
+  margin: 0 auto 1em;
   padding: 0 1em;
   width: 100%;
   max-width: 72em;
@@ -870,6 +998,8 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
   display: block;
   position: absolute;
   opacity: 0;
+  left: 0;
+  top: 0;
   pointer-events: none;
   margin: .675em 0 0;
   z-index: 1000;
@@ -961,6 +1091,12 @@ a.AboutSocialItem:hover .AboutSocialItem-body {
   height: 100%;
   width: 100%;
   z-index: 999;
+}
+
+@media (min-width: 48em) {
+  .Menu--installery {
+    margin: 0 auto 1.5em;
+  }
 }
 /* Main Nav */
 

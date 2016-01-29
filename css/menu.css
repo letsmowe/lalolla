@@ -3,7 +3,7 @@
 .Menu { }
 
 .Menu--installery {
-	margin: 0 auto;
+	margin: 0 auto 1em;
 	padding: 0 1em;
 	width: 100%;
 	max-width: 72em;
@@ -155,4 +155,12 @@
 	height: 100%;
 	width: 100%;
 	z-index: 999;
+}
+
+@media (min-width: 48em) {
+
+	.Menu--installery {
+		margin: 0 auto 1.5em;
+	}
+
 }
