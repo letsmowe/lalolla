@@ -9,7 +9,14 @@ var gulp = require('gulp'),
 
 var cssfiles = 'css/*.css',
 	imgfiles = 'img/*',
-	jsfiles = 'js/*.js';
+	jsfiles = [
+		'js/f.js',
+		'js/contact.js',
+		'js/installery.js',
+		'js/menu.js',
+		'js/nav.js',
+		'js/main.js'
+	];
 
 imgfiles = 'img/*';
 
@@ -29,19 +36,15 @@ gulp.task('js', function() {
 	gulp.src(jsfiles)
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		.pipe(rename({
-			extname: '.min.js'
-		}))
-		.pipe(gulp.dest('dist/js'))
-		.pipe(concat('dist.js'))
-		.pipe(gulp.dest('dist/js'))
-		.pipe(rename({
-			extname: '.min.js'
-		}))
 		.pipe(uglify({
 			preserveComments: 'some'
 		}))
-		.pipe(gulp.dest('dist/js'));
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest('dist/js/app'))
+		.pipe(concat('app.js'))
+		.pipe(gulp.dest('dist/js/app'));
 });
 
 gulp.task('tinypng', function () {
@@ -54,5 +57,9 @@ gulp.task('default', function() {
 	var css = ['villa', 'mowe', 'wtal'];
 	var js = ['js'];
 	gulp.watch(cssfiles, css);
+	gulp.watch(jsfiles, ['js']);
+});
+
+gulp.task('watch', function() {
 	gulp.watch(jsfiles, ['js']);
 });

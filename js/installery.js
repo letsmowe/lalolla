@@ -184,8 +184,6 @@ var Installery = (function() {
 
 			} else isOver = !isOver;
 
-		console.log('-----------------------------------------------------');
-
 		return arr;
 
 	};

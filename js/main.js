@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/magmafantastico/lalolla/blob/master/LICENSE)
  */
 
+var nav = new Nav();
+
+nav.init();
+
 var url;
 
 url = "https://api.instagram.com/v1/users/2244150949/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
