@@ -12,7 +12,7 @@ var url;
 
 url = "https://api.instagram.com/v1/users/2244150949/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
 url = "https://api.instagram.com/v1/users/225309780/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
-url = "https://api.instagram.com/v1/users/2216452236/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
+url = "https://api.instagram.com/v1/users/2216452236/media/recent/?access_token=2216452236.2a3f246.b2c6417da4f84406a38198dd54de7c5f";
 
 var installery = new Installery(document.getElementById('installery-gallery'), false);
 

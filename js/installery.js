@@ -50,6 +50,8 @@ var Installery = (function() {
 		 */
 		this.ajaxCtrl = function(data) {
 
+			console.log(data);
+
 			self.updateInstagramData(data);
 
 		};
@@ -347,6 +349,8 @@ var Installery = (function() {
 
 		this.instagram.meta = data.meta;
 		this.instagram.pagination = data.pagination;
+
+		console.log(data);
 
 		for (var i = 0; i < data.data.length; i++)
 			this.updateInstagramMediaItem(data.data[i]);
