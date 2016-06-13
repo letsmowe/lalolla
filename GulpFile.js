@@ -35,10 +35,10 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 	gulp.src(jsfiles)
 		.pipe(jshint())
-		//.pipe(jshint.reporter('default'))
-		//.pipe(uglify({
-		//	preserveComments: 'some'
-		//}))
+		.pipe(jshint.reporter('default'))
+		.pipe(uglify({
+			preserveComments: 'some'
+		}))
 		.pipe(rename({
 			extname: '.min.js'
 		}))
