@@ -61,6 +61,7 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	font-weight: 600;
 	height: 4.5em;
 	-webkit-justify-content: center;
 	justify-content: center;
@@ -72,7 +73,7 @@
 	width: 100%;
 }
 
-.InstalleryLoadButton-btn span {
+.InstalleryLoadButton-btn .icon {
 	font-size: 1.5em;
 }
 
