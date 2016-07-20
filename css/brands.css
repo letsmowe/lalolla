@@ -10,86 +10,56 @@
 	width: 100%;
 }
 
+.BrandItem-img {
+	background-image: url("../img/regua-new-v4.png");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: block;
+	height: 56px;
+	margin: 0 auto;
+	-webkit-transition: transform .4s ease-out;
+	-moz-transition: transform .4s ease-out;
+	-ms-transition: transform .4s ease-out;
+	-o-transition: transform .4s ease-out;
+	transition: transform .4s ease-out;
+}
+
 .BrandItem:hover .BrandItem-img {
 	-webkit-transform: scale(1.36);
 	-moz-transform: scale(1.36);
 	-ms-transform: scale(1.36);
 	-o-transform: scale(1.36);
 	transform: scale(1.36);
-	-webkit-transition: transform .5s;
-	-moz-transition: transform .5s;
-	-ms-transition: transform .5s;
-	-o-transition: transform .5s;
-	transition: transform .5s;
 }
 
-.BrandItem-img {
-	display: block;
-	background-image: url("../img/Regua_V_3_1.png");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	height: 56px;
-	margin: 0 auto;
+.BrandItem--richini .BrandItem-img {
+	background-position: -22px;
+	width: 144px;
 }
 
-.BrandItem--audiovisual .BrandItem-img {
-	background-position: -51px;
-	width: 160px;
+.BrandItem--passos-de-tigre .BrandItem-img {
+	background-position: -237px;
+	width: 145px;
 }
 
-.BrandItem--besni .BrandItem-img {
-	background-position: -260px;
-	width: 143px;
+.BrandItem--luxo .BrandItem-img {
+	background-position: -462px;
+	width: 125px;
 }
 
-.BrandItem--pura-essencia .BrandItem-img {
-	background-position: -452px;
-	width: 87px;
+.BrandItem--duplo-sentido .BrandItem-img {
+	background-position: -641px;
+	width: 198px;
 }
 
-.BrandItem--lady-rock .BrandItem-img {
-	background-position: -587px;
-	width: 201px;
+.BrandItem--monda .BrandItem-img {
+	background-position: -904px;
+	width: 103px;
 }
 
-.BrandItem--egoiste .BrandItem-img {
-	background-position: -838px;
-	width: 161px;
-}
-
-.BrandItem--she-likes .BrandItem-img {
-	background-position: -1048px;
-	width: 62px;
-}
-
-.BrandItem--mamo .BrandItem-img {
-	background-position: -1159px;
-	width: 115px;
-}
-
-.BrandItem--cheroy .BrandItem-img {
-	background-position: -1323px;
-	width: 161px;
-}
-
-.BrandItem--yoyo .BrandItem-img {
-	background-position: -1534px;
-	width: 48px;
-}
-
-.BrandItem--nuxx .BrandItem-img {
-	background-position: -1630px;
-	width: 187px;
-}
-
-.BrandItem--madah .BrandItem-img {
-	background-position: -1865px;
-	width: 163px;
-}
-
-.BrandItem--esoterica .BrandItem-img {
-	background-position: -2075px;
-	width: 163px;
+.BrandItem--gioconda-portto .BrandItem-img {
+	background-position: -1072px;
+	width: 198px;
 }

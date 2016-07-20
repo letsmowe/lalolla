@@ -50,9 +50,7 @@ var Installery = (function() {
 		 */
 		this.ajaxCtrl = function(data) {
 
-			console.log(data);
-
-			self.updateInstagramData(data);
+ 			self.updateInstagramData(data);
 
 		};
 
@@ -154,19 +152,6 @@ var Installery = (function() {
 
 		isOver = false;
 
-		//
-		// Find the first item and put this at top of arrays
-		//
-		//if (!this.view.lastInstagram_id) // first item
-		//	for (var i = this.instagram.data.length; i--; )
-		//		if (this.hasTag(this.instagram.data[i], 'inauguracao')) {
-		//
-		//			arr.push(this.instagram.data[i]);
-		//			this.view.lastInstagram_id++;
-		//
-		//		}
-		//
-
 		while ( this.view.lastInstagram_id < max && !isOver ) // default
 			if (media = this.instagram.data[this.view.lastInstagram_id]) {
 
@@ -185,6 +170,11 @@ var Installery = (function() {
 				}
 
 			} else isOver = !isOver;
+
+		// media is over
+		if (this.view.lastInstagram_id >= 20)
+			if (this.viewport.parentNode)
+				this.viewport.parentNode.classList.add('is-over');
 
 		return arr;
 
@@ -219,12 +209,6 @@ var Installery = (function() {
 				arr.push(instagram[instagramCount++]);
 
 		}
-
-		/*
-		*
-		* TROUBLE HERE! TODO
-		*
-		* */
 
 		return arr;
 
@@ -293,10 +277,13 @@ var Installery = (function() {
 
 		var data = this.loadMedia(this.view.options.instagramPerView, this.view.options.brandPerView);
 
-		var built = this.buildView(data);
+		if (data) {
 
-		for (var i = 0; i < built.length; i++) {
-			this.viewport.appendChild(built[i].viewport.cloneNode(true));
+			var built = this.buildView(data);
+
+			for (var i = 0; i < built.length; i++)
+				this.viewport.appendChild(built[i].viewport.cloneNode(true));
+
 		}
 
 	};
@@ -349,8 +336,6 @@ var Installery = (function() {
 
 		this.instagram.meta = data.meta;
 		this.instagram.pagination = data.pagination;
-
-		console.log(data);
 
 		for (var i = 0; i < data.data.length; i++)
 			this.updateInstagramMediaItem(data.data[i]);
@@ -416,14 +401,11 @@ var Installery = (function() {
 	 */
 	Installery.prototype.loadMore = function() {
 
-		console.log('kkk');
-
 		if (!this.instagram.loadAll)
 			this.instagram.loadAll = true;
 
-		if (this.instagram.pagination.next_url) {
+		if (this.instagram.pagination.next_url)
 			this.loadInstagramData(this.instagram.pagination.next_url, this);
-		}
 
 		this.loadView();
 
