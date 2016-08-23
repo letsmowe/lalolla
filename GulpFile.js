@@ -18,12 +18,12 @@ var gulp = require('gulp'),
 var cssfiles = 'css/*.css',
 	imgfiles = 'img/*',
 	jsfiles = [
-		'js/f.js',
-		'js/contact.js',
-		'js/installery.js',
-		'js/menu.js',
-		'js/nav.js',
-		'js/main.js'
+		'./_src/js/f.js',
+		'./_src/js/contact.js',
+		'./_src/js/installery.js',
+		'./_src/js/menu.js',
+		'./_src/js/nav.js',
+		'./_src/js/main.js'
 	];
 
 imgfiles = 'img/*';
@@ -31,19 +31,19 @@ imgfiles = 'img/*';
 // CSS
 
 gulp.task('css', function() {
-	gulp.src('./css/*.css')
+	gulp.src('./src/css/*.css')
 		.pipe(concatCSS('lalolla.css'))
-		.pipe(gulp.dest('./dist/css'))
+		.pipe(gulp.dest('./public/dist/css'))
 		.pipe(plumber())
 		.pipe(cleanCSS())
 		.pipe(rename({
 			extname: '.min.css'
 		}))
-		.pipe(gulp.dest('./dist/css'));
+		.pipe(gulp.dest('./public/dist/css'));
 });
 
 gulp.task('css-watch', ['css'], function () {
-	watch('./css/*.css', batch(function (events, done) {
+	watch('./_src/css/*.css', batch(function (events, done) {
 		gulp.start('css', done);
 		browserSync.reload();
 	}));
@@ -52,9 +52,9 @@ gulp.task('css-watch', ['css'], function () {
 // JS
 
 gulp.task('js', function() {
-	gulp.src('./js/*.js')
+	gulp.src('./_src/js/*.js')
 		.pipe(concat('lalolla.js'))
-		.pipe(gulp.dest('./dist/js'))
+		.pipe(gulp.dest('./public/dist/js'))
 		.pipe(plumber())
 		.pipe(uglify({
 			preserveComments: 'some'
@@ -62,11 +62,11 @@ gulp.task('js', function() {
 		.pipe(rename({
 			extname: '.min.js'
 		}))
-		.pipe(gulp.dest('./dist/js/'));
+		.pipe(gulp.dest('./public/dist/js/'));
 });
 
 gulp.task('js-watch', ['js'], function () {
-	watch('./js/*.js', batch(function (events, done) {
+	watch('./_src/js/*.js', batch(function (events, done) {
 		gulp.start('js', done);
 		browserSync.reload();
 	}));
@@ -87,7 +87,7 @@ gulp.task('serve', function () {
 	// Serve files from the root of this project
 	browserSync.init({
 		server: {
-			baseDir: "./",
+			baseDir: "./public/",
 			index: "index.html",
 			routes: {
 				"/home": "./index.html"
@@ -95,7 +95,7 @@ gulp.task('serve', function () {
 		}
 	});
 
-	gulp.watch('./*.html').on('change', browserSync.reload);
+	gulp.watch('./public/*.html').on('change', browserSync.reload);
 
 });
 
