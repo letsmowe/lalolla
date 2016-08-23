@@ -1,0 +1,188 @@
+/* Contact Form */
+
+.ContactForm {
+	max-width: 800px;
+	width: 100%;
+	padding: 2.25em 0 0;
+}
+
+/* Form Title */
+
+.ContactForm-title {
+	font-size: 1em;
+	width: 100%;
+	padding: 0 3.75em;
+	margin: 1em 0 .5em;
+}
+
+.ContactForm-title span {
+	color: #4e342e;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+/* Form Wrapper and Field */
+
+.ContactForm-wrapper,
+.ContactForm-field {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.ContactForm-wrapper {
+	padding: 0 1em;
+	width: 100%;
+}
+
+/* Form Field */
+
+.ContactForm-field {
+	padding: 0 1.5em;
+	width: 100%;
+}
+
+.ContactForm-field--submit {
+	padding: 0;
+}
+
+.ContactForm-field ::-webkit-input-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field :-moz-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field ::-moz-placeholder {
+	color: #607d8b;
+}
+
+.ContactForm-field :focus::-webkit-input-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field :focus:-moz-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field :focus::-moz-placeholder {
+	color: #b0bec5;
+}
+
+.ContactForm-field input,
+.ContactForm-field label,
+.ContactForm-field textarea {
+	color: #4e342e;
+	border: none;
+	background: none;
+	width: 100%;
+}
+
+.ContactForm-field input,
+.ContactForm-field textarea {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #e0e0e0;
+	margin: 1px 0 .5em;
+	order: 2;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	-ms-transition: background .3s;
+	-o-transition: background .3s;
+	transition: background .3s;
+}
+
+.ContactForm-field input:focus,
+.ContactForm-field textarea:focus {
+	border-bottom-width: 2px;
+	border-bottom-color: #00b8d4;
+	margin-top: 0;
+}
+
+.ContactForm-field input:invalid,
+.ContactForm-field textarea:invalid {
+	border-bottom-width: 2px;
+	border-bottom-color: red;
+	background: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.ContactForm-field input {
+	font-size: 1em;
+	line-height: 1;
+	padding: 1em 0 .5em;
+}
+
+.ContactForm-field--name input {
+	font-weight: 500;
+}
+
+.ContactForm-field label {
+	color: #00b8d4;
+	display: none;
+	font-size: .75em;
+	padding: 1.333333333em 0 0;
+}
+
+.ContactForm-field textarea + label {
+	order: 1;
+	display: block;
+}
+
+.ContactForm-field textarea:focus + label {
+	color: #00b8d4;
+}
+
+.ContactForm-field textarea {
+	font-size: 1em;
+	line-height: 1.5;
+	min-height: 4em;
+	min-width: 100%;
+	padding: .5em 0;
+}
+
+.ContactForm-field .ContactForm-submit {
+	color: #00b8d4;
+	cursor: pointer;
+	border: none;
+	padding: .625em .5em;
+	margin: .5em;
+	font-weight: 600;
+	text-transform: uppercase;
+	width: 6em;
+}
+
+.ContactForm-field .ContactForm-submit:hover,
+.ContactForm-field .ContactForm-submit:focus {
+	background-color: #e0e0e0;
+	margin: .5em;
+}
+
+@media (min-width: 72em) {
+
+	.ContactForm-field textarea {
+		font-size: 1em;
+		line-height: 1.5;
+		min-height: 6em;
+		min-width: 100%;
+		padding: .5em 0;
+	}
+
+}
+
+@media (min-width: 36em) {
+
+	.ContactForm-wrapper {
+		padding: 0 2.25em;
+		width: 100%;
+	}
+
+}

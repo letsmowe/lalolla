@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="grey-100 lato">
+<meta charset="UTF-8"/>
+<title>LaLolla</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<link rel="icon" type="image/png" href="dist/img/launcher-icon-2x.png" />
+<meta name="theme-color" content="#0097a7" />
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="dist/css/lalolla.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<body>
+
+<script>
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-70255828-1', 'auto');
+	ga('send', 'pageview');
+
+
+</script>
+
+<nav id="main-nav" class="MainNav MainNav--sidebar grey-50">
+
+	<a id="main-nav-controller" class="MainNav-controller font-cyan-a700 h-cyan-a700 hfont-white">
+
+		<span class="MainNav-controller-text">
+
+			<span id="main-nav-controller-icon" class="icon-menu"></span>
+
+		</span>
+
+	</a>
+
+	<header id="main-nav-header" class="MainNav-header">
+
+		<ul class="MainNav-menu">
+
+			<a href="#" class="MainNav-menu-item MainNav-menu-item--vertical font-cyan-a700 h-cyan-a700 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span>Loja</span>
+
+				</span>
+
+			</a>
+
+			<a href="#" class="MainNav-menu-item MainNav-menu-item--vertical MainNav-menu-item--brands font-cyan-a700 h-cyan-a700 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span>Grifes</span>
+
+				</span>
+
+			</a>
+
+			<a href="#" class="MainNav-menu-item font-brown-700 h-brown-600 hfont-white">
+
+				<span class="MainNav-menu-item-text">
+
+					<span class="icon-mail-alt"></span>
+
+				</span>
+
+			</a>
+
+		</ul>
+
+	</header>
+
+	<section id="main-nav-body" class="MainNav-body cyan-900">
+
+		<article class="MainNav-item grey-50">
+
+			<div class="About flex flex-column">
+
+				<header class="AboutHeader flex justify-center align-end bg-cover"></header>
+
+				<section class="AboutAttendance flex flex-wrap justify-around font-brown-800">
+
+					<div class="AboutAttendance-day flex flex-column align-center justify-center cyan-100 h-cyan-200 border-cyan-100 hborder-cyan-500">
+
+						<span class="AboutAttendance-day-title">Seg. a Sex.</span>
+
+						<div class="AboutAttendance-hours flex flex-column align-center">
+
+							<span class="AboutAttendance-hour">9:00 às 18:00</span>
+
+						</div>
+
+					</div>
+
+					<div class="AboutAttendance-day flex flex-column align-center justify-center cyan-100 h-cyan-200 border-cyan-100 hborder-cyan-500">
+
+						<span class="AboutAttendance-day-title">Sábado</span>
+
+						<div class="AboutAttendance-hours flex flex-column align-center">
+
+							<span class="AboutAttendance-hour">9:00 às 15:00</span>
+
+						</div>
+
+					</div>
+
+				</section>
+
+				<div class="AboutLocal font-brown-800">
+
+					<div class="AboutLocal-address flex justify-center">
+
+						<header class="AboutLocal-address-header flex align-center">
+							<span class="icon icon-location"></span>
+						</header>
+
+						<div class="AboutLocal-address-body flex flex-column">
+							<span class="street">Rua Floriano Peixoto, 438</span>
+							<span class="city">Assis - SP</span>
+							<span class="zip">19800-001</span>
+						</div>
+
+					</div>
+
+					<div id="map" class="AboutLocal-map"></div>
+
+					<!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
+
+					<script>
+
+						var map;
+
+						function initMap() {
+							map = new google.maps.Map(document.getElementById('map'), {
+								center: {lat: -22.66242, lng: -50.41591},
+								zoom: 17,
+								scrollwheel: false,
+							});
+						}
+
+						//						initMap();
+
+					</script>
+
+				</div>
+
+				<section class="AboutSocial font-brown-800">
+
+					<div class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-phone"></span>
+						</header>
+
+						<div class="AboutSocialItem-body">
+							<span class="value">18 3323 5941</span>
+						</div>
+
+					</div>
+
+					<div class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-whatsapp"></span>
+						</header>
+
+						<div class="AboutSocialItem-body">
+							<span class="value">18 9 9961 2637</span>
+						</div>
+
+					</div>
+
+					<a href="http://www.instagram.com/lalollaassis" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-instagram"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">instagram.com/lalollaassis</span>
+						</span>
+
+					</a>
+
+					<a href="http://www.facebook.com/lojalalollaassis" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-facebook"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">facebook.com/lojalalollaassis</span>
+						</span>
+
+					</a>
+
+					<a href="http://twitter.com" target="_blank" class="AboutSocialItem flex align-center justify-start">
+
+						<header class="AboutSocialItem-header">
+							<span class="icon icon-twitter"></span>
+						</header>
+
+						<span class="AboutSocialItem-body">
+							<span class="value">twitter.com/lalolla</span>
+						</span>
+
+					</a>
+
+				</section>
+
+				<footer class="AboutFooter font-brown-800 flex justify-center">
+
+					<span class="AboutFooter-text">Lalolla © 2015 ~ 2016</span>
+
+				</footer>
+
+			</div>
+
+		</article>
+
+		<article class="MainNav-item cyan-700">
+
+			<ul class="BrandGallery">
+
+				<li class="BrandItem BrandItem--richini">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+				<li class="BrandItem BrandItem--passos-de-tigre">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+				<li class="BrandItem BrandItem--luxo">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+				<li class="BrandItem BrandItem--duplo-sentido">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+				<li class="BrandItem BrandItem--monda">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+				<li class="BrandItem BrandItem--gioconda-portto">
+					<div class="BrandItemInner">
+						<span class="BrandItem-img"></span>
+					</div>
+				</li>
+
+			</ul>
+
+		</article>
+
+		<article class="MainNav-item grey-50">
+
+			<div id="contact-form" class="ContactForm flex flex-column">
+
+				<h1 class="ContactForm-title">
+					<span>Fale Conosco</span>
+				</h1>
+
+				<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+					<div class="ContactForm-field ContactForm-field--name">
+						<input class="name-text" type="text" size="26" name="tNome" id="cNome" maxlength="50"
+						       placeholder="Nome"
+						       title="Ops, o campo nome deve ser preenchido corretamente :)"
+						       x-moz-errormessage="Ops, o campo nome deve ser preenchido corretamente :)"/>
+						<label class="name" for="cNome">Nome</label>
+					</div>
+
+					<div class="ContactForm-field ContactForm-field--email">
+						<input class="email-text" type="email" size="26" name="tEmail" id="cEmail" maxlength="60"
+						       placeholder="E-mail"
+						       title="Ops, o campo email deve ser preenchido corretamente :)"
+						       x-moz-errormessage="Ops, o campo email deve ser preenchido corretamente :)"/>
+						<label class="email" for="cEmail">Email</label>
+					</div>
+
+				</div>
+
+				<div class="ContactForm-wrapper ContactForm-wrapper--personal-info flex flex-column">
+
+					<div class="ContactForm-field ContactForm-field--message">
+						<textarea class="lato" name="tMensagem" id="cMensagem" cols="36"
+						          placeholder="Digite a sua mensagem"
+						          title="Ops, o campo mensagem deve ser preenchido corretamente :)"
+						          x-moz-errormessage="Ops, o campo mensagem deve ser preenchido corretamente :)"></textarea>
+						<label class="text-message" for="cMensagem">Mensagem</label>
+					</div>
+
+					<div class="ContactForm-field ContactForm-field--submit flex align-end">
+						<input id="cSubmit" class="ContactForm-submit" name="ir" type="submit" value="Enviar"/>
+					</div>
+
+				</div>
+
+			</div>
+
+		</article>
+
+	</section>
+
+</nav>
+
+<header id="main-header" class="MainHeader MainHeader--default grey-50">
+
+	<a class="MainHeader-logo">
+
+		<svg version="1.1" id="lalolla-type" class="MainHeader-logo-svg MainHeader-logo-svg--cyan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 240" style="enable-background:new 0 0 1000 240;" xml:space="preserve">
+			<g id="outline" class="outline">
+				<g id="La">
+					<path id="XMLID_24_" d="M307.2,21.4c0,7.5-9.2,21.9-27.5,43.2c-18.3,21.2-36.2,38.2-53.7,50.9c-13.2,28.7-26.7,49.6-40.7,62.9
+						c-14,13.3-32.9,23-56.6,29.3c41.8,11.2,66.9,17.7,75.2,19.6c8.3,1.8,16.2,2.7,23.8,2.7c11,0,20.9-4,29.8-12
+						c0.9-0.4,1.4-0.6,1.6-0.6c0.6,0.2,1,0.4,1,0.6c0,1.7-2.8,4.5-8.4,8.4c-10.3,7.1-25.3,10.7-44.9,10.7c-14.4,0-28.4-1.4-41.7-4.2
+						c-13.4-2.8-33.7-8.5-61.1-17.1c-17.5,3.5-35.6,5.2-54.3,5.2c-33,0-49.5-5.1-49.5-15.2c0-9.5,12.6-14.2,37.8-14.2
+						c19.6,0,48.8,5.1,87.6,15.2c11.6-4.5,21.9-11.2,30.9-20c8.9-8.8,20.3-23.6,34.1-44.3c-31.5,27.4-60.8,41.1-88,41.1
+						c-18.5,0-33.3-5.5-44.3-16.5c-11-11-16.5-25.8-16.5-44.3c0-28.7,13.5-55.8,40.4-81.3c26.9-25.5,55.5-38.3,85.7-38.3
+						c13.8,0,24.8,3.6,33.1,10.8c8.3,7.2,12.5,16.9,12.5,28.9c0,21.6-10.1,43.9-30.2,66.9c-20.2,23.1-39.7,34.6-58.7,34.6
+						c-8,0-14.7-2.5-20.2-7.6c-5.5-5.1-8.2-11.3-8.2-18.6c0-5.6,1.8-10.5,5.3-14.7c3.6-4.2,7.7-6.3,12.5-6.3c6.5,0,9.7,3.3,9.7,9.8
+						c0,3.5-1.2,6.6-3.7,9.3c-2.5,2.7-5.3,4.1-8.6,4.1c-5.2,0-7.7-2.4-7.4-7.3c0.2-3.1-0.1-4.7-1-4.7c-2.4,0-3.6,3.2-3.6,9.7
+						c0,6.7,2.5,12.2,7.4,16.7c5,4.4,11.2,6.6,18.8,6.6c17.2,0,35.7-11.3,55.5-34c19.7-22.6,29.6-44.1,29.6-64.3
+						c0-10.8-3.7-19.7-11.2-26.7c-7.4-7-17-10.5-28.6-10.5c-27.8,0-54.5,14-80,41.9c-25.5,27.9-38.3,57-38.3,87.1
+						c0,14.2,4.5,25.4,13.6,33.5c9.1,8.1,21.6,12.1,37.5,12.1c13.8,0,27.4-3.4,40.9-10.2c13.5-6.8,30.1-18.5,50-35.1
+						c16.6-27.8,28.5-46.9,35.7-57.4c7.2-10.5,15.9-21,26-31.5c19.4-20.5,34.3-30.7,44.6-30.7C305,15.6,307.2,17.5,307.2,21.4z
+						 M98.6,214.1c-36.9-11.6-62-17.5-75.3-17.5c-13.8,0-20.7,3-20.7,9.1c0,8.2,16.2,12.3,48.5,12.3C68.6,218,84.4,216.7,98.6,214.1z
+						 M304.6,21.4c0-2.4-1.3-3.6-3.9-3.6c-7.8,0-18.4,8-32,23.9c-12.1,14.2-25.5,37.2-40.4,68.9C246.2,96,263.4,79,279.9,59.9
+						C296.4,40.7,304.6,27.8,304.6,21.4z"/>
+					<path id="XMLID_28_" d="M375.8,171.4c0,2.2-7.7,12.4-23,30.7c-12.5,14.9-22.3,22.3-29.4,22.3c-4.7,0-8.7-1.8-11.8-5.3
+						c-3.1-3.6-4.7-8.1-4.7-13.7c0-5.6,1.7-11.7,5.2-18.4c-10.6,14.7-18.7,24.6-24.3,29.7c-5.6,5.2-11,7.8-16.2,7.8
+						c-5.6,0-10.3-2.4-14.1-7.1c-3.8-4.7-5.7-10.7-5.7-18c0-20.2,14.2-38,42.7-53.5c12.5-6.9,22.6-10.3,30.4-10.3
+						c6.5,0,9.7,3.1,9.7,9.2c0,1.9-0.4,4.2-1.3,7l8.1-15.2c3.2,0.6,6,1,8.4,1c2.8,0,6.5-0.3,11-1l-27.6,46.2
+						c-9.6,16.2-14.4,26.8-14.4,32c0,5,2,7.4,6.1,7.4c4.1,0,10.7-4.8,19.9-14.4c9.2-9.6,18.6-21.5,28.3-35.7c0.4-1.1,1-1.6,1.6-1.6
+						C375.4,170.4,375.8,170.8,375.8,171.4z M332.4,145.2c0-5.2-2.4-7.8-7.1-7.8c-9.7,0-22.3,9.5-38,28.5c-15.7,19-23.5,34.3-23.5,45.9
+						c0,6.9,3,10.3,9,10.3c7.3,0,19.8-12.1,37.7-36.2C325.1,166.1,332.4,152.6,332.4,145.2z"/>
+				</g>
+				<g id="L">
+					<path id="XMLID_20_" d="M739.1,21.4c0,7.5-9.2,21.9-27.5,43.2c-18.3,21.2-36.2,38.2-53.7,50.9c-13.2,28.7-26.7,49.6-40.7,62.9
+						c-14,13.3-32.9,23-56.6,29.3c41.8,11.2,66.9,17.7,75.2,19.6c8.3,1.8,16.2,2.7,23.8,2.7c11,0,20.9-4,29.8-12
+						c0.9-0.4,1.4-0.6,1.6-0.6c0.6,0.2,1,0.4,1,0.6c0,1.7-2.8,4.5-8.4,8.4c-10.3,7.1-25.3,10.7-44.9,10.7c-14.4,0-28.4-1.4-41.7-4.2
+						c-13.4-2.8-33.7-8.5-61.1-17.1c-17.5,3.5-35.6,5.2-54.3,5.2c-33,0-49.5-5.1-49.5-15.2c0-9.5,12.6-14.2,37.8-14.2
+						c19.6,0,48.8,5.1,87.6,15.2c11.6-4.5,21.9-11.2,30.9-20c8.9-8.8,20.3-23.6,34.1-44.3c-31.5,27.4-60.8,41.1-88,41.1
+						c-18.5,0-33.3-5.5-44.3-16.5c-11-11-16.5-25.8-16.5-44.3c0-28.7,13.5-55.8,40.4-81.3c26.9-25.5,55.5-38.3,85.7-38.3
+						c13.8,0,24.8,3.6,33.1,10.8c8.3,7.2,12.5,16.9,12.5,28.9c0,21.6-10.1,43.9-30.2,66.9c-20.2,23.1-39.7,34.6-58.7,34.6
+						c-8,0-14.7-2.5-20.2-7.6c-5.5-5.1-8.2-11.3-8.2-18.6c0-5.6,1.8-10.5,5.3-14.7c3.6-4.2,7.7-6.3,12.5-6.3c6.5,0,9.7,3.3,9.7,9.8
+						c0,3.5-1.2,6.6-3.7,9.3c-2.5,2.7-5.3,4.1-8.6,4.1c-5.2,0-7.7-2.4-7.4-7.3c0.2-3.1-0.1-4.7-1-4.7c-2.4,0-3.6,3.2-3.6,9.7
+						c0,6.7,2.5,12.2,7.4,16.7c5,4.4,11.2,6.6,18.8,6.6c17.2,0,35.7-11.3,55.5-34c19.7-22.6,29.6-44.1,29.6-64.3
+						c0-10.8-3.7-19.7-11.2-26.7c-7.4-7-17-10.5-28.6-10.5c-27.8,0-54.5,14-80,41.9c-25.5,27.9-38.3,57-38.3,87.1
+						c0,14.2,4.5,25.4,13.6,33.5c9.1,8.1,21.6,12.1,37.5,12.1c13.8,0,27.4-3.4,40.9-10.2c13.5-6.8,30.1-18.5,50-35.1
+						c16.6-27.8,28.5-46.9,35.7-57.4c7.2-10.5,15.9-21,26-31.5c19.4-20.5,34.3-30.7,44.6-30.7C736.9,15.6,739.1,17.5,739.1,21.4z
+						 M530.5,214.1c-36.9-11.6-62-17.5-75.3-17.5c-13.8,0-20.7,3-20.7,9.1c0,8.2,16.2,12.3,48.5,12.3
+						C500.4,218,516.3,216.7,530.5,214.1z M736.5,21.4c0-2.4-1.3-3.6-3.9-3.6c-7.8,0-18.4,8-32,23.9C688.5,56,675,78.9,660.2,110.6
+						C678,96,695.2,79,711.7,59.9C728.2,40.7,736.5,27.8,736.5,21.4z"/>
+				</g>
+				<g id="olla">
+					<path id="XMLID_10_" d="M785.3,171.1c0,1.7-3.1,5.7-9.4,12c-9.3,9.3-17.8,13.9-25.5,13.9c-3.2,0-6.1-0.6-8.7-1.9
+						c-13.8,19.6-26.8,29.4-39.1,29.4c-6.3,0-11.6-2.6-16.2-7.7c-4.5-5.2-6.8-11.4-6.8-18.7c0-16.1,10.7-31.7,32-46.7
+						c14.9-10.5,27.2-15.8,36.9-15.8c9.1,0,13.6,4.8,13.6,14.5c0,12-6.4,26.5-19.1,43.4c2.2,1.3,4.5,1.9,7.1,1.9
+						c4.7,0,10.2-2.2,16.5-6.6c6.3-4.4,11.4-9.8,15.5-16c1.3-1.5,2.2-2.3,2.6-2.3C785.1,170.4,785.3,170.7,785.3,171.1z M759.7,150.1
+						c0-8.6-3.9-12.9-11.6-12.9c-9.5,0-21.1,9.2-34.9,27.5c-13.8,18.3-20.7,33.7-20.7,46.2c0,7.3,3.4,11,10.3,11
+						c11.4,0,23.8-9.4,37.2-28.1c-3-3.2-4.5-6.7-4.5-10.3c0-5.2,2-10.5,6.1-16c4.1-5.5,8.1-8.2,12-8.2c1.7,0,2.9,1.1,3.6,3.2
+						C758.9,158.7,759.7,154.6,759.7,150.1z"/>
+					<path id="XMLID_13_" d="M868.4,59.5c-44.2,73.5-70,116.7-77.3,129.7c-7.3,12.9-11,21.6-11,25.9c0,4.7,2,7.1,6.1,7.1
+						c8.8,0,25-16.7,48.5-50.1c0.4-1.1,1.1-1.6,1.9-1.6c0.4,0.2,0.6,0.5,0.6,1c0,0.6-0.5,1.5-1.6,2.6l-6.8,9.4
+						c-19.8,27.4-34.5,41.1-44,41.1c-4.5,0-8.2-1.7-11.2-5c-2.9-3.4-4.4-7.7-4.4-13.1c0-5.8,1.3-11.5,4-16.9
+						c2.7-5.4,11.8-21.1,27.3-47.1c19.2-31.8,35.2-59.4,48.2-82.8c3.2,1.3,6,1.9,8.4,1.9C861.3,61.5,864.9,60.8,868.4,59.5z"/>
+					<path id="XMLID_15_" d="M920.1,59.5c-44.2,73.5-70,116.7-77.3,129.7c-7.3,12.9-11,21.6-11,25.9c0,4.7,2,7.1,6.1,7.1
+						c8.8,0,25-16.7,48.5-50.1c0.4-1.1,1.1-1.6,1.9-1.6c0.4,0.2,0.6,0.5,0.6,1c0,0.6-0.5,1.5-1.6,2.6l-6.8,9.4
+						c-19.8,27.4-34.5,41.1-44,41.1c-4.5,0-8.2-1.7-11.2-5c-2.9-3.4-4.4-7.7-4.4-13.1c0-5.8,1.3-11.5,4-16.9
+						c2.7-5.4,11.8-21.1,27.3-47.1c19.2-31.8,35.2-59.4,48.2-82.8c3.2,1.3,6,1.9,8.4,1.9C913,61.5,916.7,60.8,920.1,59.5z"/>
+					<path id="XMLID_17_" d="M1000,171.4c0,2.2-7.7,12.4-23,30.7c-12.5,14.9-22.3,22.3-29.4,22.3c-4.7,0-8.7-1.8-11.8-5.3
+						c-3.1-3.6-4.7-8.1-4.7-13.7c0-5.6,1.7-11.7,5.2-18.4c-10.6,14.7-18.6,24.6-24.3,29.7c-5.6,5.2-11,7.8-16.2,7.8
+						c-5.6,0-10.3-2.4-14.1-7.1c-3.8-4.7-5.7-10.7-5.7-18c0-20.2,14.2-38,42.7-53.5c12.5-6.9,22.6-10.3,30.4-10.3
+						c6.5,0,9.7,3.1,9.7,9.2c0,1.9-0.4,4.2-1.3,7l8.1-15.2c3.2,0.6,6,1,8.4,1c2.8,0,6.5-0.3,11-1l-27.6,46.2
+						c-9.6,16.2-14.4,26.8-14.4,32c0,5,2,7.4,6.1,7.4c4.1,0,10.7-4.8,19.9-14.4c9.2-9.6,18.6-21.5,28.3-35.7c0.4-1.1,1-1.6,1.6-1.6
+						C999.7,170.4,1000,170.8,1000,171.4z M956.7,145.2c0-5.2-2.4-7.8-7.1-7.8c-9.7,0-22.3,9.5-38,28.5c-15.7,19-23.5,34.3-23.5,45.9
+						c0,6.9,3,10.3,9,10.3c7.3,0,19.8-12.1,37.7-36.2C949.4,166.1,956.7,152.6,956.7,145.2z"/>
+				</g>
+			</g>
+		</svg>
+
+	</a>
+
+</header>
+
+<div class="splash-bottom">
+
+	<svg version="1.1" class="logo-splash" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 800" style="enable-background:new 0 0 1000 800;" xml:space="preserve">
+		<g id="LalollaLogo">
+			<path id="LalollaLogo_x5F_path" class="logo-path" d="M544.7,50c33.8,0,69.7,24.5,107.7,73.5c32.4,41.7,53.2,78,59.3,107.2
+				c27.7,14.6,56.2,32.2,89,54.3c36.6,24.7,62,42.9,77.6,59.2c13.5-34.4,21.1-57.1,21.1-72.6c0-31.7-7-55.7-35.4-86.8
+				c-26.7-29.2-51.6-43.8-74.7-43.8c-10.7,0-19.9,2.2-27.2,6.9c-8.7,5.6-12.8,13.4-12.8,23.1c0,19.8,10.7,35.4,46.6,61.7l-5.3,3.7
+				c-36.6-25.4-54.9-49.7-54.9-72.7c0-10.6,5.3-22.4,14.1-28.7c8.9-6.4,19.6-8.7,32-9.5c36.3-2.4,75.8,14.8,100.3,46.2
+				c22.7,29,31.4,49.9,31.4,85.9c0,18.4-14.1,62.2-29,96.3c14.9,21.1,25.7,44.6,25.7,76.3c0,26.3-13.8,40.6-32.7,40.6
+				c-19.9,0-32.7-16.2-32.7-40.5c0-21.7,11.4-43.1,30.3-75.1c-24.8-20.6-77.9-53.2-160.8-95.1c0,3.5,0,8.5,0,15
+				c0,31.4-10.8,55.9-32.5,73.5c-18.5,14.9-40,22.3-64.5,22.3c-32.4,0-57.1-10-74.1-30c-15.3-18.1-22.9-42.2-22.9-72.3
+				c0-31.4,10.8-60.6,32.5-87.7l3.2,3.2c-19.6,27.9-29.3,48.3-29.3,77.3c0,26.8,8.8,48,26.5,63.5c17.6,15.5,41.6,23.3,71.9,23.3
+				c23.6,0,43.3-7.9,59.1-23.7c15.9-15.8,18.7-37.7,18.7-60.9c0-7.3-0.4-5.4-1.1-10.3c-42.4-20.3-82-45.5-121.9-75
+				c-53.9-39.8-69.2-72-69.2-99.4C510.6,59.6,522,50,544.7,50L544.7,50z M555.5,65.9c-19.2-1.4-25.5,4.9-23.6,20.5
+				c2.4,19.9,20,42.4,61.5,71.4c22.2,15.6,47.1,33.2,106.8,66.5c-7.5-29.2-16-43.5-47.4-82.7C616.6,96.4,584.5,68,555.5,65.9
+				L555.5,65.9z M880,362.2c-17.4,33.3-25.5,47-25.5,64c0,44.2,45.3,44.6,45.3-2.4C899.9,406.6,889.5,377.4,880,362.2z"/>
+			<path id="LalollaLogo_x5F_path_1_" class="logo-path" d="M544.7,750c33.8,0,69.7-24.5,107.7-73.5c32.4-41.7,53.2-78,59.3-107.2
+				c27.7-14.6,56.2-32.2,89-54.3c36.6-24.7,62-42.9,77.6-59.2c13.5,34.4,21.1,57.1,21.1,72.6c0,31.7-7,55.7-35.4,86.8
+				c-26.7,29.2-51.6,43.8-74.7,43.8c-10.7,0-19.9-2.2-27.2-6.9c-8.7-5.6-12.8-13.4-12.8-23.1c0-19.8,10.7-35.4,46.6-61.7l-5.3-3.7
+				c-36.6,25.4-54.9,49.7-54.9,72.7c0,10.6,5.3,22.4,14.1,28.7c8.9,6.4,19.6,8.7,32,9.5c36.3,2.4,75.8-14.8,100.3-46.2
+				c22.7-29,31.4-49.9,31.4-85.9c0-18.4-14.1-62.2-29-96.3c14.9-21.1,25.7-44.6,25.7-76.3c0-26.3-13.8-40.6-32.7-40.6
+				c-19.9,0-32.7,16.2-32.7,40.5c0,21.7,11.4,43.1,30.3,75.1c-24.8,20.6-77.9,53.2-160.8,95.1c0-3.5,0-8.5,0-15
+				c0-31.4-10.8-55.9-32.5-73.5c-18.5-14.9-40-22.3-64.5-22.3c-32.4,0-57.1,10-74.1,30c-15.3,18.1-22.9,42.2-22.9,72.3
+				c0,31.4,10.8,60.6,32.5,87.7l3.2-3.2c-19.6-27.9-29.3-48.3-29.3-77.3c0-26.8,8.8-48,26.5-63.5c17.6-15.5,41.6-23.3,71.9-23.3
+				c23.6,0,43.3,7.9,59.1,23.7c15.9,15.8,18.7,37.7,18.7,60.9c0,7.3-0.4,5.4-1.1,10.3c-42.4,20.3-82,45.5-121.9,75
+				c-53.9,39.8-69.2,72-69.2,99.4C510.6,740.4,522,750,544.7,750L544.7,750z M555.5,734.1c-19.2,1.4-25.5-4.9-23.6-20.5
+				c2.4-19.9,20-42.4,61.5-71.4c22.2-15.6,47.1-33.2,106.8-66.5c-7.5,29.2-16,43.5-47.4,82.7C616.6,703.6,584.5,732,555.5,734.1
+				L555.5,734.1z M880,437.8c-17.4-33.3-25.5-47-25.5-64c0-44.2,45.3-44.6,45.3,2.4C899.9,393.4,889.5,422.6,880,437.8z"/>
+			<path id="LalollaLogo_x5F_path_2_" class="logo-path" d="M455.3,50c-33.8,0-69.7,24.5-107.7,73.5c-32.4,41.7-53.2,78-59.3,107.2
+				c-27.7,14.6-56.2,32.2-89,54.3c-36.6,24.7-62,42.9-77.6,59.2c-13.5-34.4-21.1-57.1-21.1-72.6c0-31.7,7-55.7,35.4-86.8
+				c26.7-29.2,51.6-43.8,74.7-43.8c10.7,0,19.9,2.2,27.2,6.9c8.7,5.6,12.8,13.4,12.8,23.1c0,19.8-10.7,35.4-46.6,61.7l5.3,3.7
+				c36.6-25.4,54.9-49.7,54.9-72.7c0-10.6-5.3-22.4-14.1-28.7c-8.9-6.4-19.6-8.7-32-9.5c-36.3-2.4-75.8,14.8-100.3,46.2
+				c-22.7,29-31.4,49.9-31.4,85.9c0,18.4,14.1,62.2,29,96.3c-14.9,21.1-25.7,44.6-25.7,76.3c0,26.3,13.8,40.6,32.7,40.6
+				c19.9,0,32.7-16.2,32.7-40.5c0-21.7-11.4-43.1-30.3-75.1c24.8-20.6,77.9-53.2,160.8-95.1c0,3.5,0,8.5,0,15
+				c0,31.4,10.8,55.9,32.5,73.5c18.5,14.9,40,22.3,64.5,22.3c32.4,0,57.1-10,74.1-30c15.3-18.1,22.9-42.2,22.9-72.3
+				c0-31.4-10.8-60.6-32.5-87.7l-3.2,3.2c19.6,27.9,29.3,48.3,29.3,77.3c0,26.8-8.8,48-26.5,63.5c-17.6,15.5-41.6,23.3-71.9,23.3
+				c-23.6,0-43.3-7.9-59.1-23.7c-15.9-15.8-18.7-37.7-18.7-60.9c0-7.3,0.4-5.4,1.1-10.3c42.4-20.3,82-45.5,121.9-75
+				c53.9-39.8,69.2-72,69.2-99.4C489.4,59.6,478,50,455.3,50z M444.5,65.9c19.2-1.4,25.5,4.9,23.6,20.5c-2.4,19.9-20,42.4-61.5,71.4
+				c-22.2,15.6-47.1,33.2-106.8,66.5c7.5-29.2,16-43.5,47.4-82.7C383.4,96.4,415.5,68,444.5,65.9z M120,362.2
+				c17.4,33.3,25.5,47,25.5,64c0,44.2-45.3,44.6-45.3-2.4C100.1,406.6,110.5,377.4,120,362.2z"/>
+			<path id="LalollaLogo_x5F_path_3_" class="logo-path" d="M455.3,750c-33.8,0-69.7-24.5-107.7-73.5c-32.4-41.7-53.2-78-59.3-107.2
+				c-27.7-14.6-56.2-32.2-89-54.3c-36.6-24.7-62-42.9-77.6-59.2c-13.5,34.4-21.1,57.1-21.1,72.6c0,31.7,7,55.7,35.4,86.8
+				c26.7,29.2,51.6,43.8,74.7,43.8c10.7,0,19.9-2.2,27.2-6.9c8.7-5.6,12.8-13.4,12.8-23.1c0-19.8-10.7-35.4-46.6-61.7l5.3-3.7
+				c36.6,25.4,54.9,49.7,54.9,72.7c0,10.6-5.3,22.4-14.1,28.7c-8.9,6.4-19.6,8.7-32,9.5c-36.3,2.4-75.8-14.8-100.3-46.2
+				c-22.7-29-31.4-49.9-31.4-85.9c0-18.4,14.1-62.2,29-96.3c-14.9-21.1-25.7-44.6-25.7-76.3c0-26.3,13.8-40.6,32.7-40.6
+				c19.9,0,32.7,16.2,32.7,40.5c0,21.7-11.4,43.1-30.3,75.1c24.8,20.6,77.9,53.2,160.8,95.1c0-3.5,0-8.5,0-15
+				c0-31.4,10.8-55.9,32.5-73.5c18.5-14.9,40-22.3,64.5-22.3c32.4,0,57.1,10,74.1,30c15.3,18.1,22.9,42.2,22.9,72.3
+				c0,31.4-10.8,60.6-32.5,87.7l-3.2-3.2c19.6-27.9,29.3-48.3,29.3-77.3c0-26.8-8.8-48-26.5-63.5c-17.6-15.5-41.6-23.3-71.9-23.3
+				c-23.6,0-43.3,7.9-59.1,23.7c-15.9,15.8-18.7,37.7-18.7,60.9c0,7.3,0.4,5.4,1.1,10.3c42.4,20.3,82,45.5,121.9,75
+				c53.9,39.8,69.2,72,69.2,99.4C489.4,740.4,478,750,455.3,750L455.3,750z M444.5,734.1c19.2,1.4,25.5-4.9,23.6-20.5
+				c-2.4-19.9-20-42.4-61.5-71.4c-22.2-15.6-47.1-33.2-106.8-66.5c7.5,29.2,16,43.5,47.4,82.7C383.4,703.6,415.5,732,444.5,734.1z
+				 M120,437.8c17.4-33.3,25.5-47,25.5-64c0-44.2-45.3-44.6-45.3,2.4C100.1,393.4,110.5,422.6,120,437.8z"/>
+		</g>
+		</svg>
+
+
+</div>
+
+<section id="installery" class="Installery flex flex-column">
+
+	<nav id="installery-menu" class="Menu Menu--installery GalleryNav"></nav>
+
+	<div id="installery-gallery" class="InstalleryGallery flex flex-wrap justify-center"></div>
+
+	<div class="InstalleryLoadButton InstalleryLoadButton--plus">
+
+		<button class="InstalleryLoadButton-btn font-cyan-a700 white h-cyan-a700 hfont-white" onclick="installery.loadMore();"><span class="icon icon-plus"></span></button>
+
+	</div>
+
+	<div class="InstalleryLoadButton InstalleryLoadButton--is-over">
+
+		<a href="https://www.instagram.com/lalollaassis/" class="InstalleryLoadButton-btn font-cyan-a700 white h-cyan-a700 hfont-white" onclick="installery.loadMore();"><span class="icon icon-instagram"></span><span>Visite nosso Instragram! ; )</span></a>
+
+	</div>
+
+</section>
+
+<footer id="main-footer" class="MainFooter MainFooter--default font-grey-800">
+
+	<a href="#" class="MainFooter-logo">
+
+		<svg version="1.1" id="lalolla-logo" class="MainFooter-logo-svg MainFooter-logo-svg--grey"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 800" style="enable-background:new 0 0 1000 800;" xml:space="preserve">
+			<g id="LalollaLogo">
+				<path id="LalollaLogo_x5F_path" class="logo-path" d="M544.7,50c33.8,0,69.7,24.5,107.7,73.5c32.4,41.7,53.2,78,59.3,107.2
+					c27.7,14.6,56.2,32.2,89,54.3c36.6,24.7,62,42.9,77.6,59.2c13.5-34.4,21.1-57.1,21.1-72.6c0-31.7-7-55.7-35.4-86.8
+					c-26.7-29.2-51.6-43.8-74.7-43.8c-10.7,0-19.9,2.2-27.2,6.9c-8.7,5.6-12.8,13.4-12.8,23.1c0,19.8,10.7,35.4,46.6,61.7l-5.3,3.7
+					c-36.6-25.4-54.9-49.7-54.9-72.7c0-10.6,5.3-22.4,14.1-28.7c8.9-6.4,19.6-8.7,32-9.5c36.3-2.4,75.8,14.8,100.3,46.2
+					c22.7,29,31.4,49.9,31.4,85.9c0,18.4-14.1,62.2-29,96.3c14.9,21.1,25.7,44.6,25.7,76.3c0,26.3-13.8,40.6-32.7,40.6
+					c-19.9,0-32.7-16.2-32.7-40.5c0-21.7,11.4-43.1,30.3-75.1c-24.8-20.6-77.9-53.2-160.8-95.1c0,3.5,0,8.5,0,15
+					c0,31.4-10.8,55.9-32.5,73.5c-18.5,14.9-40,22.3-64.5,22.3c-32.4,0-57.1-10-74.1-30c-15.3-18.1-22.9-42.2-22.9-72.3
+					c0-31.4,10.8-60.6,32.5-87.7l3.2,3.2c-19.6,27.9-29.3,48.3-29.3,77.3c0,26.8,8.8,48,26.5,63.5c17.6,15.5,41.6,23.3,71.9,23.3
+					c23.6,0,43.3-7.9,59.1-23.7c15.9-15.8,18.7-37.7,18.7-60.9c0-7.3-0.4-5.4-1.1-10.3c-42.4-20.3-82-45.5-121.9-75
+					c-53.9-39.8-69.2-72-69.2-99.4C510.6,59.6,522,50,544.7,50L544.7,50z M555.5,65.9c-19.2-1.4-25.5,4.9-23.6,20.5
+					c2.4,19.9,20,42.4,61.5,71.4c22.2,15.6,47.1,33.2,106.8,66.5c-7.5-29.2-16-43.5-47.4-82.7C616.6,96.4,584.5,68,555.5,65.9
+					L555.5,65.9z M880,362.2c-17.4,33.3-25.5,47-25.5,64c0,44.2,45.3,44.6,45.3-2.4C899.9,406.6,889.5,377.4,880,362.2z"/>
+				<path id="LalollaLogo_x5F_path_1_" class="logo-path" d="M544.7,750c33.8,0,69.7-24.5,107.7-73.5c32.4-41.7,53.2-78,59.3-107.2
+					c27.7-14.6,56.2-32.2,89-54.3c36.6-24.7,62-42.9,77.6-59.2c13.5,34.4,21.1,57.1,21.1,72.6c0,31.7-7,55.7-35.4,86.8
+					c-26.7,29.2-51.6,43.8-74.7,43.8c-10.7,0-19.9-2.2-27.2-6.9c-8.7-5.6-12.8-13.4-12.8-23.1c0-19.8,10.7-35.4,46.6-61.7l-5.3-3.7
+					c-36.6,25.4-54.9,49.7-54.9,72.7c0,10.6,5.3,22.4,14.1,28.7c8.9,6.4,19.6,8.7,32,9.5c36.3,2.4,75.8-14.8,100.3-46.2
+					c22.7-29,31.4-49.9,31.4-85.9c0-18.4-14.1-62.2-29-96.3c14.9-21.1,25.7-44.6,25.7-76.3c0-26.3-13.8-40.6-32.7-40.6
+					c-19.9,0-32.7,16.2-32.7,40.5c0,21.7,11.4,43.1,30.3,75.1c-24.8,20.6-77.9,53.2-160.8,95.1c0-3.5,0-8.5,0-15
+					c0-31.4-10.8-55.9-32.5-73.5c-18.5-14.9-40-22.3-64.5-22.3c-32.4,0-57.1,10-74.1,30c-15.3,18.1-22.9,42.2-22.9,72.3
+					c0,31.4,10.8,60.6,32.5,87.7l3.2-3.2c-19.6-27.9-29.3-48.3-29.3-77.3c0-26.8,8.8-48,26.5-63.5c17.6-15.5,41.6-23.3,71.9-23.3
+					c23.6,0,43.3,7.9,59.1,23.7c15.9,15.8,18.7,37.7,18.7,60.9c0,7.3-0.4,5.4-1.1,10.3c-42.4,20.3-82,45.5-121.9,75
+					c-53.9,39.8-69.2,72-69.2,99.4C510.6,740.4,522,750,544.7,750L544.7,750z M555.5,734.1c-19.2,1.4-25.5-4.9-23.6-20.5
+					c2.4-19.9,20-42.4,61.5-71.4c22.2-15.6,47.1-33.2,106.8-66.5c-7.5,29.2-16,43.5-47.4,82.7C616.6,703.6,584.5,732,555.5,734.1
+					L555.5,734.1z M880,437.8c-17.4-33.3-25.5-47-25.5-64c0-44.2,45.3-44.6,45.3,2.4C899.9,393.4,889.5,422.6,880,437.8z"/>
+				<path id="LalollaLogo_x5F_path_2_" class="logo-path" d="M455.3,50c-33.8,0-69.7,24.5-107.7,73.5c-32.4,41.7-53.2,78-59.3,107.2
+					c-27.7,14.6-56.2,32.2-89,54.3c-36.6,24.7-62,42.9-77.6,59.2c-13.5-34.4-21.1-57.1-21.1-72.6c0-31.7,7-55.7,35.4-86.8
+					c26.7-29.2,51.6-43.8,74.7-43.8c10.7,0,19.9,2.2,27.2,6.9c8.7,5.6,12.8,13.4,12.8,23.1c0,19.8-10.7,35.4-46.6,61.7l5.3,3.7
+					c36.6-25.4,54.9-49.7,54.9-72.7c0-10.6-5.3-22.4-14.1-28.7c-8.9-6.4-19.6-8.7-32-9.5c-36.3-2.4-75.8,14.8-100.3,46.2
+					c-22.7,29-31.4,49.9-31.4,85.9c0,18.4,14.1,62.2,29,96.3c-14.9,21.1-25.7,44.6-25.7,76.3c0,26.3,13.8,40.6,32.7,40.6
+					c19.9,0,32.7-16.2,32.7-40.5c0-21.7-11.4-43.1-30.3-75.1c24.8-20.6,77.9-53.2,160.8-95.1c0,3.5,0,8.5,0,15
+					c0,31.4,10.8,55.9,32.5,73.5c18.5,14.9,40,22.3,64.5,22.3c32.4,0,57.1-10,74.1-30c15.3-18.1,22.9-42.2,22.9-72.3
+					c0-31.4-10.8-60.6-32.5-87.7l-3.2,3.2c19.6,27.9,29.3,48.3,29.3,77.3c0,26.8-8.8,48-26.5,63.5c-17.6,15.5-41.6,23.3-71.9,23.3
+					c-23.6,0-43.3-7.9-59.1-23.7c-15.9-15.8-18.7-37.7-18.7-60.9c0-7.3,0.4-5.4,1.1-10.3c42.4-20.3,82-45.5,121.9-75
+					c53.9-39.8,69.2-72,69.2-99.4C489.4,59.6,478,50,455.3,50z M444.5,65.9c19.2-1.4,25.5,4.9,23.6,20.5c-2.4,19.9-20,42.4-61.5,71.4
+					c-22.2,15.6-47.1,33.2-106.8,66.5c7.5-29.2,16-43.5,47.4-82.7C383.4,96.4,415.5,68,444.5,65.9z M120,362.2
+					c17.4,33.3,25.5,47,25.5,64c0,44.2-45.3,44.6-45.3-2.4C100.1,406.6,110.5,377.4,120,362.2z"/>
+				<path id="LalollaLogo_x5F_path_3_" class="logo-path" d="M455.3,750c-33.8,0-69.7-24.5-107.7-73.5c-32.4-41.7-53.2-78-59.3-107.2
+					c-27.7-14.6-56.2-32.2-89-54.3c-36.6-24.7-62-42.9-77.6-59.2c-13.5,34.4-21.1,57.1-21.1,72.6c0,31.7,7,55.7,35.4,86.8
+					c26.7,29.2,51.6,43.8,74.7,43.8c10.7,0,19.9-2.2,27.2-6.9c8.7-5.6,12.8-13.4,12.8-23.1c0-19.8-10.7-35.4-46.6-61.7l5.3-3.7
+					c36.6,25.4,54.9,49.7,54.9,72.7c0,10.6-5.3,22.4-14.1,28.7c-8.9,6.4-19.6,8.7-32,9.5c-36.3,2.4-75.8-14.8-100.3-46.2
+					c-22.7-29-31.4-49.9-31.4-85.9c0-18.4,14.1-62.2,29-96.3c-14.9-21.1-25.7-44.6-25.7-76.3c0-26.3,13.8-40.6,32.7-40.6
+					c19.9,0,32.7,16.2,32.7,40.5c0,21.7-11.4,43.1-30.3,75.1c24.8,20.6,77.9,53.2,160.8,95.1c0-3.5,0-8.5,0-15
+					c0-31.4,10.8-55.9,32.5-73.5c18.5-14.9,40-22.3,64.5-22.3c32.4,0,57.1,10,74.1,30c15.3,18.1,22.9,42.2,22.9,72.3
+					c0,31.4-10.8,60.6-32.5,87.7l-3.2-3.2c19.6-27.9,29.3-48.3,29.3-77.3c0-26.8-8.8-48-26.5-63.5c-17.6-15.5-41.6-23.3-71.9-23.3
+					c-23.6,0-43.3,7.9-59.1,23.7c-15.9,15.8-18.7,37.7-18.7,60.9c0,7.3,0.4,5.4,1.1,10.3c42.4,20.3,82,45.5,121.9,75
+					c53.9,39.8,69.2,72,69.2,99.4C489.4,740.4,478,750,455.3,750L455.3,750z M444.5,734.1c19.2,1.4,25.5-4.9,23.6-20.5
+					c-2.4-19.9-20-42.4-61.5-71.4c-22.2-15.6-47.1-33.2-106.8-66.5c7.5,29.2,16,43.5,47.4,82.7C383.4,703.6,415.5,732,444.5,734.1z
+					 M120,437.8c17.4-33.3,25.5-47,25.5-64c0-44.2-45.3-44.6-45.3,2.4C100.1,393.4,110.5,422.6,120,437.8z"/>
+			</g>
+		</svg>
+
+	</a>
+
+	<div class="MainFooter-bodyText">
+
+		<p>Tendencia em moda</p>
+
+		<a href="http://lalolla.com.br/webmail" class="MainFooter-lock-sign"><span class="icon-lock"></span></a>
+
+	</div>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="dist/js/lalolla.js"></script>
+
+<script>
+
+	var nav = new Nav();
+
+	nav.init();
+
+	var url;
+
+	url = "https://api.instagram.com/v1/users/2244150949/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
+	url = "https://api.instagram.com/v1/users/225309780/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
+	url = "https://api.instagram.com/v1/users/2216452236/media/recent/?access_token=2216452236.2a3f246.b2c6417da4f84406a38198dd54de7c5f";
+	url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2216452236.2a3f246.b2c6417da4f84406a38198dd54de7c5f";
+
+	var installery = new Installery(document.getElementById('installery-gallery'), false);
+
+	installery.loadBrandData([
+		{
+			caption: {
+				text: 'Garnus'
+			},
+			brand: true,
+			images: {
+				standard_resolution: {
+					url: 'img/garnus.png'
+				}
+			}
+		},
+		{
+			caption: {
+				text: 'Khelf'
+			},
+			brand: true,
+			images: {
+				standard_resolution: {
+					url: 'img/khelf.png'
+				}
+			}
+		},
+		{
+			caption: {
+				text: 'Miss Chilli'
+			},
+			brand: true,
+			images: {
+				standard_resolution: {
+					url: 'img/miss-chilli.png'
+				}
+			}
+		}
+	]);
+
+	installery.init(url);
+
+	var foo = function() {
+//		console.log(this);
+		document.getElementById('main').classList.toggle('light-blue-100');
+	};
+
+	var menu = new Menu(document.getElementById('installery-menu'), {
+		name: 'cagories',
+		title: false,
+		showItems: 3,
+		list: [
+			{
+				name: 'camisetas',
+				title: 'Camisetas',
+				onClick: function() {
+					installery.reload();
+				}
+			},
+			{
+				name: 'categoria-01',
+				title: 'Saias',
+				onClick: foo
+			},
+			{
+				name: 'categoria-02',
+				title: 'Vestidos',
+				onClick: foo
+			},
+			{
+				name: 'categoria-03',
+				title: 'Blusas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-04',
+				title: 'Camisas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-05',
+				title: 'Bolsas',
+				onClick: foo
+			},
+			{
+				name: 'categoria-06',
+				title: 'Sapatos',
+				onClick: foo
+			},
+			{
+				name: 'categoria-07',
+				title: 'Batas',
+				onClick: foo
+			}
+		]
+	});
+
+	menu.init();
+
+	var contact = new Contact(document.getElementById('contact-form'), {
+		url: 'i/mail/'
+	});
+
+	contact.init();
+
+</script>
+
+</body>
+
+</html>

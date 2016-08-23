@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="lato">
+<head>
+	<meta charset="UTF-8">
+	<title>Lalolla</title>
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	<script src="dist/js/villa.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="dist/css/villa.min.css"/>
+	<link rel="stylesheet" href="../src/css/icon.css"/>
+	<link rel="stylesheet" href="dist/css/font-awesome.css"/>
+	<link rel="stylesheet" href="src/css/font-awesome.min.css"/>
+
+	<style type="text/css">
+
+
+		.logo {
+			background-image: url("dist/img/lalolla3.jpg");
+			width: 100%;
+			height: 300px;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.nav-header,
+		.local,
+		.social {
+			width: 100%;
+		}
+
+		.attendance {
+			padding: 1em 0;
+		}
+
+		.attendance-wrapper {
+			max-width: 24em;
+			width: 100%;
+			padding: 0 1em;
+		}
+
+		.attendance-day {
+			padding: 1em 1.5em;
+			border-radius: 3%;
+			cursor: pointer;
+		}
+
+		.title {
+			font-size: 1em;
+			font-weight: 500;
+			letter-spacing: -1px;
+			margin-bottom: 2px;
+		}
+
+		.hours {}
+
+		.hour {
+			font-size: .875em;
+			letter-spacing: -.5px;
+		}
+
+		.local {
+			width: 100%;
+			padding-bottom: 1.3125em;
+		}
+
+		#map  {
+			height: 80vh;
+			width: 100%;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.info{
+			padding-bottom: 1em;
+			cursor: pointer;
+			color: #006064;
+			-webkit-transition: all .4s;
+			-moz-transition: all .4s;
+			-ms-transition: all .4s;
+			-o-transition: all .4s;
+			transition: all .4s;
+			padding: 1em 1.5em;
+			border-radius: 3%;
+		}
+
+		.info:hover {
+			color: #00838f;
+		}
+
+		.infos .icon {
+			font-size: 2.25em;
+
+		}
+
+		.street, .city, .zip {
+			font-size: .875em;
+			letter-spacing: -.5px;
+		}
+
+		.social-wrapper{
+			max-width: 800px;
+			width: 100%;
+		}
+
+		.social-content {
+			padding-bottom: .375em;
+			padding-left: 5em;
+			color: #424242;
+			font-size: 1em;
+			letter-spacing: -1px;
+		}
+
+		.fa {
+			padding-right: .375em;
+		}
+
+		.fa-facebook {
+			margin-right: .375em;
+		}
+
+		.social-content .fa {
+			padding-right: .5em;
+			cursor: pointer;
+			color: rgba(97, 97, 97, 0.8);
+			text-shadow: 1px 2px 2px #eeeeee, 0 0 0 #000, 1px 2px 1px #eeeeee;
+		}
+
+		.social-content:hover,
+		.social-content:hover .fa  {
+			color: #006064;
+			text-shadow: none;
+			-webkit-transition: all .4s;
+			-moz-transition: all .4s;
+			-ms-transition: all .4s;
+			-o-transition: all .4s;
+			transition: all .4s;
+		}
+
+		.value-phone, .value-whatsapp {
+			cursor: pointer;
+		}
+
+		.about-wrapper {
+			margin-top: 1em;
+			max-width: 1280px;
+			width: 100%;
+		}
+
+		.address-footer, {
+			font-size: .875em;
+			letter-spacing: -.5px;
+		}
+
+		.info-footer {
+			font-size: 1em;
+			font-weight: 400;
+		}
+
+		.footer-infos {
+			padding: 1em;
+		}
+
+		@media (min-width: 18em) {
+
+			#map  {
+				height: 45vh;
+				width: 100%;
+			}
+
+		.address-footer {
+				font-size: .75em;
+				letter-spacing: -.5px;
+			}
+
+		.info-footer {
+				font-size: .875em;
+				font-weight: 400;
+			}
+		}
+
+		@media (min-width: 36em) {
+
+			.logo {
+				width: 100%;
+				height: 500px;
+				background-size: cover;
+				background-position: center;
+			}
+
+			#map  {
+				height: 40vh;
+				width: 100%;
+			}
+
+		}
+
+		@media (min-width: 48em) {
+
+			.logo {
+				width: 100%;
+				height: 600px;
+				background-size: cover;
+				background-position: center;
+			}
+
+			#map  {
+				height: 40vh;
+				width: 100%;
+			}
+		}
+
+		@media (min-width: 72em) {
+
+			.logo {
+
+				height: 1000px;
+				background-size: cover;
+				background-position: center;
+			}
+
+			#map  {
+				height: 80vh;
+				width: 100%;
+			}
+		}
+
+		@media (min-width: 96em) {
+
+			.logo {
+				width: 100%;
+				height: 100vh;
+				background-size: cover;
+				background-position: center;
+			}
+
+			#map  {
+				height: 80vh;
+				width: 100%;
+			}
+		}
+
+
+	</style>
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+	<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.css"/>
+	<script src="dist/js/html5shiv.js"></script>
+	<script src="dist/js/html5shiv-printshiv.js"></script>
+	<script src="dist/js/classList.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<nav>
+	<header class="nav-header">
+
+		<div class="logo"></div>
+		<div class="attendance flex justify-center grey-50 font-grey-900">
+			<div class="attendance-wrapper flex justify-between">
+				<div class="attendance-day flex flex-column align-center h-grey-200">
+					<span class="title">Seg. a Sex.</span>
+
+					<div class="hours flex flex-column align-center">
+						<span class="hour">9:00 às 18:00</span>
+						<!--<span class="hour">13:00 às 18:00</span>-->
+					</div>
+				</div>
+				<div class="attendance-day flex flex-column align-center justify-center h-grey-200">
+					<span class="title flex">Sábado</span>
+
+					<div class="hours flex flex-column align-center">
+						<span class="hour">8:00 às 15:00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="local">
+
+		<div class="infos">
+			<div class="info info-address-wrapper flex justify-center">
+				<div class="info info-address flex align-center">
+					<header class="info-header">
+						<span class="fa fa-map-marker fa-4x"></span>
+					</header>
+					<div class="info-content flex flex-column">
+						<span class="street">Rua Floriano Peixoto, 438</span>
+						<span class="city">Assis - SP</span>
+						<span class="zip">19800-001</span>
+					</div>
+				</div>
+			</div>
+
+			<div id="map"></div>
+
+			<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+			<script TYPE="text/javascript">
+
+				var map;
+				function initMap() {
+					console.log('teste');
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: {lat: -22.66242, lng: -50.41591},
+						zoom: 17,
+						scrollwheel: false,
+					});
+					console.log(map);
+				}
+				initMap();
+			</script>
+		</div>
+
+	</div>
+	<!--FIM LOCAL-->
+
+	<div class="social">
+		<div class="social-wrapper align-center">
+			<div class="info-social flex flex-column justify-between">
+				<div class="social-content flex align-center justify-start">
+					<header>
+						<span class="fa fa-phone fa-2x"></span>
+					</header>
+					<span class="value-phone">18 3322 2202</span>
+				</div>
+				<div class="social-content flex align-center justify-start">
+					<header>
+						<span class="fa fa-whatsapp fa-2x"></span>
+					</header>
+					<span class="value-whatsapp">18 9 9923 2220</span>
+				</div>
+				<a href="http://www.instagram.com/lalollaloja" target="_blank"
+				   class="social-content flex align-center justify-start">
+					<header>
+						<span class="fa fa-instagram fa-2x"></span>
+					</header>
+					<span class="value-instagram">instagram.com/lalollaloja</span>
+				</a>
+				<a href="http://www.facebook.com" target="_blank"
+				   class="social-content flex align-center justify-start">
+					<header>
+						<span class="fa fa-facebook fa-2x"></span>
+					</header>
+					<span class="value-facebook">facebook.com/lalolla</span>
+				</a>
+				<a href="http://twitter.com" target="_blank" class="social-content flex align-center justify-start">
+					<header>
+						<span class="fa fa-twitter fa-2x"></span>
+					</header>
+					<span class="value-twitter">twitter.com/lalolla</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer-infos grey-400">
+		<div class="footer-info">
+			<div class="about-wrapper flex justify-around align-center">
+				<div class="about flex flex-column align-center">
+					<span class="info-footer">©Lalolla.com.br 2015</span>
+					<span class="address-footer grey-400">Rua Floriano Peixoto, 438</span>
+					<span class="address-footer grey-400">Assis - SP</span>
+				</div>
+				<div class="about-logo">
+					<a href="http://wwww.kabanas.info">
+						<img src="public/dist/img/logo_kabanas.png" alt="kabanas info"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</nav>
+</body>
+</html>
