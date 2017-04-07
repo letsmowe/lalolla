@@ -8,14 +8,16 @@
  * Constructor of Contact
  * Needs of jQuery Ajax (>1.11.3)
  * @param viewport
+ * @param feedback
  * @param options
  * @constructor menu
  */
-function Contact(viewport, options) {
+function Contact(viewport, feedback, options) {
 
 	var self = this;
 
 	this.viewport = viewport;
+	this.feedback = feedback;
 
 	this.url = !!options.url ? options.url : false;
 
@@ -23,41 +25,98 @@ function Contact(viewport, options) {
 
 	this.fields = {};
 
-	this.clickCtrl = function() {
+	this.tries = 0;
+	this.maxTries = 3;
+
+	this.clickCtrl = function(e) {
 
 		self.initResponse(this);
-
-		this.preventDefault();
+		e.preventDefault();
 
 	};
 
 	this.asyncSuccessCtrl = function(data) {
 
 		if (data.sent)
-			self.showMessage();
+			self.showSuccessMessage();
 		else
-			self.send();
+			self.showFailMessage();
 
 	};
 
 	this.asyncErrorCtrl = function(data) {
 
-		console.log('erro');
-		self.send();
+		this.tries = this.tries + 1;
+
+		if(this.tries <= this.maxTries)
+			self.retry(this.tries);
+		else
+			self.showErrorMessage();
 
 	};
 
 }
 
-Contact.prototype.showMessage = function() {
+Contact.prototype.showSuccessMessage = function() {
 
-	console.log('hhee');
+	console.log('enviado');
+	this.feedback.innerText = 'Mensagem enviada!';
+	this.feedback.classList.add('success');
+	this.submit.disabled = true;
+
+};
+
+Contact.prototype.showFailMessage = function() {
+
+	console.log('completou, mas ocorreu uma falha');
+	this.feedback.innerText = 'Houve uma falha no envio.';
+	this.feedback.classList.add('fail');
+
+};
+
+Contact.prototype.showErrorMessage = function() {
+
+	this.feedback.innerText = 'Não foi possível enviar.';
+	this.feedback.classList.add('error');
+
+};
+
+Contact.prototype.showRequiredMessage = function(mailError) {
+
+	if (mailError) {
+
+		document.querySelectorAll('.email-text')[0].focus();
+		this.feedback.innerText = 'E-mail preenchido incorretamente';
+
+	} else {
+
+		this.feedback.innerText = 'Preencha todos os campos!';
+
+	}
 
 };
 
 Contact.prototype.send = function() {
 
 	console.log('enviando');
+	this.feedback.innerText = 'Enviando...';
+
+	$.ajax({
+		url: this.url,
+		type: 'jsonp',
+		cache: false,
+		data: this.data,
+		method: 'get',
+		timeout: 30000,
+		success: this.asyncSuccessCtrl,
+		error: this.asyncErrorCtrl
+	});
+
+};
+
+Contact.prototype.retry = function(tries) {
+
+	console.log('tentando enviar novamente');
 
 	$.ajax({
 		url: this.url,
@@ -108,10 +167,22 @@ Contact.prototype.validateFields = function() {
 
 Contact.prototype.initResponse = function(event) {
 
-	if (this.validateFields())
-		this.loadFieldsData(true);
-	else {
-		// error function
+	if (this.validateFields()) {
+
+		if (this.fields.mail.validity) {
+
+			if (this.fields.mail.validity.valid)
+				this.loadFieldsData(true);
+			else
+				this.showRequiredMessage(true);
+
+		} else {
+			//validate only if it have validity object (supports email input type)
+			this.loadFieldsData(true);
+		}
+
+	} else {
+		this.showRequiredMessage(false);
 	}
 
 };

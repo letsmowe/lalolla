@@ -31,7 +31,7 @@ imgfiles = 'img/*';
 // CSS
 
 gulp.task('css', function() {
-	gulp.src('./src/css/*.css')
+	gulp.src('./_src/css/*.css')
 		.pipe(concatCSS('lalolla.css'))
 		.pipe(gulp.dest('./public/dist/css'))
 		.pipe(plumber())

@@ -11,7 +11,7 @@
 }
 
 .BrandItem-img {
-	background-image: url("../img/regua-new-v4.png");
+	background-image: url("../img/regua-new-v10.png");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -34,32 +34,77 @@
 	transform: scale(1.36);
 }
 
+.BrandItem--levis .BrandItem-img {
+	background-position: -26px;
+	width: 72px;
+}
+
+.BrandItem--khelf .BrandItem-img {
+	background-position: -166px;
+	width: 166px;
+}
+
+.BrandItem--murau .BrandItem-img {
+	background-position: -398px;
+	width: 128px;
+}
+
+.BrandItem--lily .BrandItem-img {
+	background-position: -602px;
+	width: 109px;
+}
+
+.BrandItem--banana-lima .BrandItem-img {
+	background-position: -787px;
+	width: 102px;
+}
+
+.BrandItem--luleg .BrandItem-img {
+	background-position: -965px;
+	width: 89px;
+}
+
+.BrandItem--raizz .BrandItem-img {
+	background-position: -1138px;
+	width: 166px;
+}
+
+.BrandItem--garnus .BrandItem-img {
+	background-position: -1377px;
+	width: 81px;
+}
+
+.BrandItem--miss-chilli .BrandItem-img {
+	background-position: -1507px;
+	width: 169px;
+}
+
 .BrandItem--richini .BrandItem-img {
-	background-position: -22px;
-	width: 144px;
+	background-position: -1713px;
+	width: 143px;
 }
 
 .BrandItem--passos-de-tigre .BrandItem-img {
-	background-position: -237px;
-	width: 145px;
+	background-position: -1928px;
+	width: 146px;
 }
 
 .BrandItem--luxo .BrandItem-img {
-	background-position: -462px;
+	background-position: -2153px;
 	width: 125px;
 }
 
 .BrandItem--duplo-sentido .BrandItem-img {
-	background-position: -641px;
-	width: 198px;
+	background-position: -2363px;
+	width: 166px;
 }
 
 .BrandItem--monda .BrandItem-img {
-	background-position: -904px;
-	width: 103px;
+	background-position: -2596px;
+	width: 101px;
 }
 
 .BrandItem--gioconda-portto .BrandItem-img {
-	background-position: -1072px;
-	width: 198px;
+	background-position: -2764px;
+	width: 182px;
 }

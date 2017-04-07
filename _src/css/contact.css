@@ -40,6 +40,22 @@
 	width: 100%;
 }
 
+.ContactForm-wrapper--message {
+	text-align: center;
+}
+
+.ContactForm-wrapper--message.success {
+	color: green;
+}
+
+.ContactForm-wrapper--message.error {
+	color: red;
+}
+
+.ContactForm-wrapper--message.fail {
+	color: orange;
+}
+
 /* Form Field */
 
 .ContactForm-field {
@@ -165,6 +181,7 @@
 	background-color: #e0e0e0;
 	margin: .5em;
 }
+
 
 @media (min-width: 72em) {
 
