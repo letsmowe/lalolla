@@ -289,6 +289,9 @@ var Installery = (function() {
 		 */
 		this.ajaxCtrl = function(data) {
 
+			/* EXPIRED TOKEN DEBUG */
+			console.log(data);
+
  			self.updateInstagramData(data);
 
 		};
@@ -610,7 +613,7 @@ var Installery = (function() {
 			cache: false,
 			success: self.ajaxCtrl,
 			error: function() {
-				console.log('ajax error');
+				console.log('ajax error 1');
 			}
 		});
 
@@ -629,7 +632,7 @@ var Installery = (function() {
 			cache: false,
 			success: this.ajaxCtrl,
 			error: function() {
-				console.log('ajax error');
+				console.log('ajax error 2');
 			}
 		});
 

@@ -624,7 +624,17 @@
 	url = "https://api.instagram.com/v1/users/2244150949/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
 	url = "https://api.instagram.com/v1/users/225309780/media/recent/?client_id=80703e5f430749578c3113ff9eb19c9b";
 	url = "https://api.instagram.com/v1/users/2216452236/media/recent/?access_token=2216452236.2a3f246.b2c6417da4f84406a38198dd54de7c5f";
-	url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2216452236.2a3f246.b2c6417da4f84406a38198dd54de7c5f";
+	url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2216452236.d082143.99bd7c8cd7344799bae206d0535a499d";
+
+	/* EXPIRED TOKEN - NEEDS RE-AUTH */
+	/* InstalleryV2
+	* https://stackoverflow.com/questions/22753170/instagram-access-token-expire
+	* https://stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user/33783840#33783840
+	* https://github.com/whizzzkid/instagram-reverse-proxy
+	* https://www.instagram.com/lalollaassis/media/
+	* https://runkit.com/vishnukanwar/scrap-an-instagram-page-s-popular-images
+	* */
+
 
 	var installery = new Installery(document.getElementById('installery-gallery'), false);
 
@@ -736,7 +746,8 @@
 
 	var contact = new Contact(document.getElementById('contact-form'), document.getElementById('contact-message'), {
 //		url: 'i/mail/'
-		url: 'https://service.elbit.com.br/mailman/lalolla/'
+//		url: 'https://service.elbit.com.br/mailman/lalolla/'
+		url: 'https://service-elbit-com-br.umbler.net/mailman/lalolla/'
 	});
 
 	contact.init();
